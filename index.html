@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="te">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#126357">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Gentle chair, standing and in-bed exercises for knee and joint pain, in Telugu and English.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="వ్యాయామాలు">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<style>*{box-sizing:border-box}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Amma Nanna Exercises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap">
+<style>
+/* Layout: sticky top bar (text + voice language, sound) · left menu (sections, today's session, grouped exercises with progress) · main view */
+:root{
+  --bg:#EFF4F1; --surface:#FFFFFF; --sunk:#E3ECE8; --ink:#16211D; --muted:#53635C; --line:#CFDAD5;
+  --accent:#126357; --accent-ink:#FFFFFF; --accent-soft:#D3E9E3; --accent-mid:#8CC3B8;
+  --mark:#D97F00; --fig:#22312C; --fig-far:#A2B4AD; --prop:#BFCCC6; --prop2:#DAE4DF;
+  --warn-bg:#FFF1D2; --warn-ink:#5A4000; --scrim:rgba(10,20,16,.45);
+  --f-body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-te:'Noto Sans Telugu','Nirmala UI','Gautami','Telugu Sangam MN',sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1513; --surface:#17201D; --sunk:#1F2A26; --ink:#E4EDE9; --muted:#9BACA5; --line:#2B3733;
+  --accent:#4DB3A3; --accent-ink:#08120F; --accent-soft:#173430; --accent-mid:#2A6A60;
+  --mark:#F3A73A; --fig:#E1EBE7; --fig-far:#5C6F68; --prop:#3B4844; --prop2:#27322E;
+  --warn-bg:#2D2410; --warn-ink:#F2D699; --scrim:rgba(0,0,0,.6); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0E1513; --surface:#17201D; --sunk:#1F2A26; --ink:#E4EDE9; --muted:#9BACA5; --line:#2B3733;
+  --accent:#4DB3A3; --accent-ink:#08120F; --accent-soft:#173430; --accent-mid:#2A6A60;
+  --mark:#F3A73A; --fig:#E1EBE7; --fig-far:#5C6F68; --prop:#3B4844; --prop2:#27322E;
+  --warn-bg:#2D2410; --warn-ink:#F2D699; --scrim:rgba(0,0,0,.6); color-scheme:dark }
+
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.5}
+body.lock{overflow:hidden}
+.te{font-family:var(--f-te);line-height:1.65}
+.en2{display:block;font-family:var(--f-body);font-size:.74em;font-weight:400;color:var(--muted);line-height:1.35;margin-top:2px}
+.sub{font-family:var(--f-body);font-size:.82em;opacity:.72;font-weight:400}
+button{font:inherit;color:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+button:disabled{opacity:.45;cursor:default}
+h1,h2,h3{text-wrap:balance;overflow-wrap:anywhere}
+.row>*{min-width:0;max-width:100%}
+.seg{max-width:100%}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:var(--bg);border-bottom:1px solid var(--line)}
+.topin{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-inline:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0;flex:1 1 240px}
+.brand b{font-size:20px;line-height:1.2;min-width:0;overflow-wrap:anywhere}
+.menuBtn{display:none;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;min-height:46px;min-width:46px;padding:0 12px;cursor:pointer;align-items:center;gap:6px}
+.menuBtn svg{width:22px;height:22px}
+.tctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.lbl{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-right:6px}
+.lbl .te{text-transform:none;letter-spacing:0;font-size:14px}
+.grp{display:inline-flex;align-items:center}
+.seg{display:inline-flex;background:var(--sunk);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:7px 13px;border-radius:999px;cursor:pointer;font-size:15px;min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.14);font-weight:700}
+.sound{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;min-height:44px;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.sound svg{width:22px;height:22px;flex:none}
+.sound[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+
+@media (max-width:700px){
+  .top{position:static}
+  .topin{gap:8px 10px;padding-block:8px}
+  .brand .sub{display:none}
+  .brand b{font-size:18px}
+  .lbl .sub{display:none}
+  .lbl{font-size:12px;margin-right:4px}
+  .seg button{padding:6px 10px;font-size:14px;min-height:40px}
+  .sound{padding:6px 10px}
+  .sound span{display:none}
+}
+/* shell */
+.shell{display:grid;grid-template-columns:280px minmax(0,1fr)}
+.side{position:sticky;top:var(--topH,64px);height:calc(100vh - var(--topH,64px));overflow-y:auto;border-right:1px solid var(--line);padding-inline:12px;padding-block:14px 40px;background:var(--bg)}
+.scrim{display:none}
+@media (max-width:959px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .menuBtn{display:inline-flex}
+  .side{position:fixed;left:0;top:0;bottom:0;height:auto;width:min(330px,88vw);z-index:40;transform:translateX(-104%);transition:transform .25s ease;background:var(--surface);padding-top:calc(env(safe-area-inset-top,0px) + 14px);box-shadow:0 0 30px rgba(0,0,0,.2)}
+  .side.open{transform:none}
+  .scrim.open{display:block;position:fixed;inset:0;background:var(--scrim);z-index:35}
+}
+.nav{display:grid;gap:4px}
+.nav button,.sitem{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:transparent;border-radius:12px;padding:10px 12px;cursor:pointer;min-height:48px;font-size:17px}
+.nav button:hover,.sitem:hover{background:var(--sunk)}
+.nav button[aria-current="page"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.nav svg{width:22px;height:22px;flex:none}
+.badge{margin-left:auto;font-size:13px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.nav button[aria-current="page"] .badge{background:var(--accent-ink);color:var(--accent)}
+.shead{margin:18px 12px 6px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;display:flex;justify-content:space-between;gap:8px}
+.shead .te{text-transform:none;letter-spacing:0;font-size:14px}
+.sitem{font-size:16px;padding:8px 10px;min-height:44px}
+.sitem .nmS{min-width:0;flex:1;line-height:1.3}
+.sitem[aria-current="true"]{background:var(--accent-soft);font-weight:700}
+.st{width:24px;height:24px;flex:none;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--muted)}
+.st.ok{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.st.now{border-color:var(--mark);color:var(--mark)}
+.st svg{width:14px;height:14px}
+.sprog{height:8px;border-radius:8px;background:var(--sunk);margin:4px 12px 8px;overflow:hidden}
+.sprog i{display:block;height:100%;background:var(--accent);border-radius:8px}
+
+/* main */
+.main{min-width:0;padding-inline:16px;padding-block:22px 64px}
+.wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.wrap>*{min-width:0}
+h1{margin:0;font-size:clamp(26px,4.6vw,34px);line-height:1.2}
+.lead{margin:0;color:var(--muted);font-size:17px;max-width:62ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.stack{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.stat,.card,.day{min-width:0;overflow-wrap:anywhere}
+.row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.safety{background:var(--warn-bg);color:var(--warn-ink);border-radius:14px;padding:14px 16px;border:2px solid color-mix(in srgb,var(--warn-ink) 35%,transparent);display:grid;gap:6px}
+.safety p{margin:0;font-size:18px}
+.safety h3{margin:0;font-size:19px;display:flex;align-items:center;gap:8px;color:var(--warn-ink)}
+.safety h3 svg{width:24px;height:24px;flex:none}
+.phead2{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.purpose{font-size:19px;margin:8px 0 0;max-width:62ch}
+.purpose b{color:var(--accent)}
+.pbar{position:sticky;top:var(--topH,64px);z-index:15;background:var(--bg);display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding-block:8px;border-bottom:1px solid var(--line)}
+@media (max-width:700px){.pbar{top:0;gap:8px}.pbar .ghost span{display:none}.pbar .ghost{padding:9px 12px}.pbar .stag{flex-basis:100%;text-align:center}.pbar .counter>span:first-child{display:none}.pbar .primary{padding:10px 16px;min-height:52px;font-size:18px}.pbar .sp{display:none}}
+.pbar .counter{margin-left:0}
+.pbar .sp{flex:1}
+.safety .en2{color:inherit;opacity:.8}
+.primary{border:0;background:var(--accent);color:var(--accent-ink);border-radius:14px;padding:12px 24px;min-height:58px;font-size:20px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;max-width:100%;text-align:left}
+.primary svg,.ghost svg{width:22px;height:22px;flex:none}
+.ghost{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 15px;min-height:48px;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;gap:8px;max-width:100%;text-align:left}
+.chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 15px;cursor:pointer;min-height:46px;font-size:17px}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.flabel{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;min-width:84px}
+.flabel .te{text-transform:none;letter-spacing:0;font-size:14px}
+.pill{padding:3px 10px;border-radius:999px;font-weight:700;font-size:14px}
+.pill.easy{background:var(--accent-soft);color:var(--accent)}
+.pill.mod{background:var(--warn-bg);color:var(--warn-ink)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:15px;color:var(--muted)}
+.time{display:inline-flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.time svg{width:16px;height:16px}
+.done1{color:var(--accent);font-weight:700}
+
+/* plan list */
+.plist{list-style:none;margin:0;padding:0;display:grid}
+.plist li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 4px;border-top:1px solid var(--line)}
+.plist li:first-child{border-top:0}
+.plist .part{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.plist .part .te{text-transform:none;letter-spacing:0;font-size:13px}
+.plist button.nmB{border:0;background:none;text-align:left;padding:0;cursor:pointer;font-size:18px;font-weight:700;line-height:1.3}
+.rtag{font-size:12px;padding:1px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);font-weight:700;margin-left:6px;vertical-align:middle}
+.tot{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding-top:10px;border-top:2px solid var(--ink);margin-top:4px;font-weight:700}
+.tot b{font-size:24px;font-variant-numeric:tabular-nums}
+
+/* library grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.xcard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0}
+.xcard .open{display:grid;gap:8px;width:100%;text-align:left;background:none;border:0;padding:12px;cursor:pointer;border-radius:16px}
+.xcard .open:hover .thumb{background:var(--accent-soft)}
+.thumb{display:block;width:100%;height:auto;background:var(--sunk);border-radius:12px}
+.nm{font-size:19px;font-weight:700;line-height:1.3;padding-right:36px}
+.nm .te{font-weight:600}
+.star{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border-radius:50%;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--fig-far)}
+.star svg{width:26px;height:26px}
+.star[aria-pressed="true"]{color:var(--mark)}
+.star[aria-pressed="true"] path{fill:currentColor}
+.empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:22px;color:var(--muted)}
+
+/* week */
+.week{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:grid;gap:8px;align-content:start}
+.day.today{border:2px solid var(--accent)}
+.day h3{margin:0;font-size:20px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.day .focus{color:var(--accent);font-weight:700;font-size:16px}
+.day ol{margin:0;padding-left:22px;display:grid;gap:4px;font-size:16px}
+.linkB{border:0;background:none;padding:0;font:inherit;color:var(--accent);text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left}
+.day ol li span.m{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.daytot{font-weight:700;font-variant-numeric:tabular-nums}
+
+/* progress */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.stat .k{font-size:14px;color:var(--muted)}
+.stat .v{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15}
+.stat .v small{font-size:16px;color:var(--muted);font-weight:400}
+.calhead{max-width:560px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.calhead h3{margin:0;font-size:22px}
+.cal{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.cal .wd{text-align:center;font-size:13px;color:var(--muted);font-weight:700;padding-bottom:2px}
+.cal button{aspect-ratio:1/1;max-width:100%;border:1px solid var(--line);background:var(--surface);border-radius:12px;cursor:pointer;display:grid;align-content:space-between;justify-items:start;padding:6px;font-variant-numeric:tabular-nums;min-width:0}
+.cal button .dn{font-size:15px}
+.cal button .cn{justify-self:end;font-size:14px;font-weight:700;min-width:24px;height:24px;border-radius:12px;display:grid;place-items:center;padding:0 6px}
+.cal button.l1 .cn{background:var(--accent-soft);color:var(--accent)}
+.cal button.l2 .cn{background:var(--accent-mid);color:var(--ink)}
+.cal button.l3 .cn{background:var(--accent);color:var(--accent-ink)}
+.cal button.today{border:2px solid var(--ink)}
+.cal button[aria-pressed="true"]{outline:3px solid var(--mark);outline-offset:1px}
+.cal button.blank{visibility:hidden}
+.cal button.future{opacity:.5}
+.dlist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.dlist li{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:6px;font-size:17px}
+.dlist li:first-child{border-top:0;padding-top:0}
+.dlist .r{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+textarea.copybox{width:100%;min-height:140px;font:inherit;font-size:15px;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);color:var(--ink)}
+
+/* figure */
+svg.fig line{stroke-linecap:round}
+line.near{stroke:var(--fig)} line.far{stroke:var(--fig-far)} line.fo{stroke:var(--mark)}
+circle.near{fill:var(--fig)} circle.far{fill:var(--fig-far)} circle.fo{fill:var(--mark)}
+path.tor.near{fill:var(--fig);stroke:var(--fig)} path.tor.fo{fill:var(--mark);stroke:var(--mark)}
+circle.head{fill:var(--surface);stroke:var(--fig)} circle.head.fo{stroke:var(--mark)}
+circle.dot{fill:var(--fig)} path.mouth{fill:none;stroke:var(--fig);stroke-width:2;stroke-linecap:round}
+.prop{fill:var(--prop)} .prop2{fill:var(--prop2)} .floor{fill:var(--prop2)}
+
+/* player */
+.ptop{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.stag{font-size:15px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:4px 12px;border-radius:999px}
+.dnav{display:flex;gap:8px;flex-wrap:wrap}
+.phead{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.phead h2{margin:0;font-size:clamp(26px,4vw,34px);line-height:1.25}
+.phead .star{position:static;flex:none}
+.dgrid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:26px;align-items:start}
+@media (max-width:1100px){.dgrid{grid-template-columns:1fr;gap:20px}}
+.stagecol{display:grid;gap:12px;min-width:0}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px 14px 8px;position:relative;overflow:hidden}
+.cue{text-align:center;font-size:26px;font-weight:700;min-height:2.7em;display:flex;flex-direction:column;justify-content:center;line-height:1.25}
+.cue .te{font-weight:700}
+.cue .en2{font-size:.62em}
+.breath{text-align:center;font-size:16px;color:var(--muted);min-height:1.6em;margin-top:-2px}
+.breath .te{font-size:17px}
+.listen{background:var(--accent-soft);color:var(--ink);border-radius:14px;padding:12px 16px}
+.listen h3{margin:0 0 4px;font-size:17px;color:var(--accent)}
+.listen p{margin:0}
+.demo{position:absolute;left:12px;bottom:12px;font-size:13px;font-weight:700;color:var(--muted);background:var(--sunk);border-radius:999px;padding:3px 10px}
+.demo .te{font-size:14px}
+#fig{display:block;width:100%;height:auto;max-height:50vh}
+.over{position:absolute;inset:0;background:var(--surface);display:grid;place-content:center;justify-items:center;gap:10px;text-align:center;padding:18px}
+.over h3{margin:0;font-size:28px}
+.over .big{font-size:64px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.over .nx{font-size:18px;color:var(--muted);max-width:44ch}
+.over .nx b{color:var(--ink)}
+.ctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.counter{margin-left:auto;display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums;font-size:17px;color:var(--muted)}
+.counter b{font-size:34px;color:var(--ink)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 16px;display:grid;gap:8px}
+.panel label{font-size:17px}
+.stepper{display:inline-flex;align-items:center;gap:8px}
+.stepper button{width:52px;height:52px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);font-size:28px;font-weight:700;cursor:pointer;line-height:1}
+.stepper output{min-width:48px;text-align:center;font-size:30px;font-weight:700;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--accent);height:36px}
+.ticks{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.note{margin:0;font-size:15px;color:var(--warn-ink);background:var(--warn-bg);padding:10px 12px;border-radius:10px}
+.textcol{min-width:0}
+.textcol h3{margin:22px 0 6px;font-size:14px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+.textcol h3 .te{letter-spacing:0;text-transform:none;font-size:17px}
+.textcol h3 .en2{display:inline;margin-left:8px;font-size:12px}
+.textcol p{margin:0;font-size:19px;max-width:62ch}
+.steps{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;font-size:19px}
+.steps li::before{content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:18px}
+.blist{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:6px;font-size:19px}
+.care{margin-top:20px;background:var(--warn-bg);border-radius:14px;padding:12px 14px;color:var(--warn-ink)}
+.care h3{margin-top:0!important;color:var(--warn-ink)!important}
+.care .en2{color:inherit;opacity:.8}
+.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:0 12px;min-height:48px}
+.search svg{width:20px;height:20px;flex:none;color:var(--muted)}
+.search input{border:0;background:transparent;font:inherit;font-size:17px;color:var(--ink);width:100%;min-width:0;padding:10px 0;outline:none}
+.search:focus-within{outline:3px solid var(--mark);outline-offset:1px}
+.side .search{margin:0 4px 12px}
+.notes textarea{width:100%;min-height:110px;font:inherit;font-size:17px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface);color:var(--ink);resize:vertical}
+.notes .row{justify-content:space-between}
+.nlist{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.nlist li{border-top:1px solid var(--line);padding-top:10px}
+.nlist li:first-child{border-top:0;padding-top:0}
+.nlist .when{font-size:14px;color:var(--muted)}
+.nlist p{margin:4px 0 0;white-space:pre-wrap}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 20px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;z-index:60;font-size:16px;max-width:calc(100vw - 32px)}
+@media (prefers-reduced-motion:reduce){.side{transition:none}}
+</style>
+
+<header class="top" id="top"></header>
+<div class="shell">
+  <aside class="side" id="side" aria-label="Menu"></aside>
+  <div class="scrim" id="scrim"></div>
+  <main class="main"><div class="wrap" id="main"></div></main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* ===== 1. DATA (pure: no DOM; also read by the audio build script) ===== */
+const UI={
+ title:{en:'Gentle Joint Exercises',te:'అమ్మ-నాన్న వ్యాయామాలు'},
+ textL:{en:'Text',te:'అక్షరాలు'}, voiceL:{en:'Voice',te:'గొంతు'},
+ soundOn:{en:'Sound on',te:'శబ్దం ఆన్'}, soundOff:{en:'Sound off',te:'శబ్దం ఆఫ్'}, menu:{en:'Menu',te:'మెనూ'},
+ navToday:{en:'Today',te:'ఈ రోజు'}, navLib:{en:'All exercises',te:'అన్ని వ్యాయామాలు'}, navPlan:{en:'Week plan',te:'వారం ప్రణాళిక'}, navProg:{en:'Progress',te:'పురోగతి'},
+ session:{en:'Today’s session',te:'ఈ రోజు సెషన్'},
+ safety:{en:'Ask the doctor before starting. A mild stretching feeling is normal. Stop right away if the pain becomes sharp or worse, or if you feel dizzy, chest pain or short of breath.',te:'మొదలుపెట్టే ముందు డాక్టర్‌ను అడగండి. కొంచెం సాగినట్టు అనిపించడం మామూలే. నొప్పి పదునుగా లేదా ఎక్కువగా అయితే, తల తిరిగితే, ఛాతీ నొప్పి లేదా ఆయాసం వస్తే వెంటనే ఆపండి.'},
+ safetyT:{en:'Safety first',te:'ముందు భద్రత'}, installApp:{en:'Install app',te:'యాప్ ఇన్‌స్టాల్ చేయండి'},
+ search:{en:'Search exercises',te:'వ్యాయామాలు వెతకండి'}, searchPh:{en:'Knee, shoulder, chair, bed…',te:'మోకాలు, భుజం, కుర్చీ, మంచం…'},
+ notesT:{en:'Notes and feedback',te:'గమనికలు, అభిప్రాయం'}, notesHint:{en:'How did it feel? Any pain, or anything hard to follow? Write it here.',te:'ఎలా అనిపించింది? నొప్పి వచ్చిందా, ఏదైనా అర్థం కాలేదా? ఇక్కడ రాయండి.'},
+ save:{en:'Save',te:'సేవ్ చేయండి'}, saved:{en:'Saved',te:'సేవ్ అయింది'}, lastSaved:{en:'Last saved',te:'చివరిగా సేవ్ చేసింది'},
+ appFb:{en:'About the app',te:'యాప్ గురించి'}, allNotes:{en:'All notes and feedback',te:'అన్ని గమనికలు, అభిప్రాయాలు'}, noNotes:{en:'No notes yet. Notes saved on any exercise appear here.',te:'ఇంకా గమనికలు లేవు. ఏ వ్యాయామంలో సేవ్ చేసినా ఇక్కడ కనిపిస్తాయి.'}, whatDoes:{en:'What this exercise does',te:'ఈ వ్యాయామం ఏమి చేస్తుంది'}, startDay:{en:'Start this day',te:'ఈ రోజు ప్రణాళిక మొదలు'},
+ libSub:{en:'No floor exercises. Everything is done on a chair, holding a chair, or lying in bed.',te:'నేల మీద కూర్చునే వ్యాయామాలు లేవు. అన్నీ కుర్చీలో, కుర్చీ పట్టుకుని, లేదా మంచం మీద చేయవచ్చు.'},
+ show:{en:'Show',te:'చూపించు'}, where:{en:'Where',te:'ఎక్కడ'},
+ all:{en:'All',te:'అన్నీ'}, knee:{en:'Knee pain',te:'మోకాళ్ళ నొప్పి'}, joint:{en:'Joint pain',te:'కీళ్ళ నొప్పి'}, fav:{en:'My list',te:'నా జాబితా'},
+ chair:{en:'On a chair',te:'కుర్చీలో'}, stand:{en:'Holding a chair',te:'కుర్చీ పట్టుకుని'}, bed:{en:'In bed',te:'మంచం మీద'},
+ knees:{en:'Knees',te:'మోకాళ్ళు'}, hips:{en:'Hips',te:'తుంటి'}, ankles:{en:'Ankles',te:'చీలమండలు'}, back:{en:'Back',te:'వీపు, నడుము'},
+ shoulders:{en:'Shoulders',te:'భుజాలు'}, neck:{en:'Neck',te:'మెడ'}, hands:{en:'Hands & arms',te:'చేతులు, వేళ్ళు'},
+ easy:{en:'Easy',te:'సులభం'}, mod:{en:'A little harder',te:'కొంచెం కష్టం'},
+ why:{en:'Why it helps',te:'ఎందుకు మంచిది'}, how:{en:'How to do it',te:'ఎలా చేయాలి'}, careful:{en:'Be careful',te:'జాగ్రత్త'},
+ play:{en:'Start',te:'మొదలు'}, pause:{en:'Pause',te:'ఆపు'}, again:{en:'Again',te:'మళ్ళీ చేయి'}, restart:{en:'Restart',te:'మొదటి నుండి'},
+ speed:{en:'Speed',te:'వేగం'}, vslow:{en:'Very slow',te:'చాలా నెమ్మది'}, slow:{en:'Slow',te:'నెమ్మది'}, normal:{en:'Normal',te:'మామూలు'},
+ count:{en:'Done',te:'చేసినవి'}, doneMsg:{en:'Done! Well done.',te:'పూర్తైంది! బాగా చేశారు.'},
+ repsL:{en:'How many times',te:'ఎన్ని సార్లు'}, eachLegL:{en:'with each leg',te:'ప్రతి కాలితో'}, eachSideL:{en:'on each side',te:'ప్రతి వైపు'},
+ about:{en:'About',te:'సుమారు'}, min:{en:'min',te:'నిమి'}, sec:{en:'sec',te:'సెక'},
+ hear:{en:'Hear instructions again',te:'సూచనలు మళ్ళీ వినండి'},
+ watch:{en:'Watch first',te:'ముందు చూడండి'},
+ noAudio:{en:'Sound could not play. Check that the volume is up and silent mode is off.',te:'శబ్దం రాలేదు. వాల్యూమ్ పెంచి, సైలెంట్ మోడ్ ఆఫ్ చేయండి.'},
+ prev:{en:'Previous',te:'ముందుది'}, next:{en:'Next',te:'తర్వాతది'},
+ empty:{en:'No exercises match these filters. Try another one.',te:'ఈ ఎంపికలకు వ్యాయామాలు లేవు. వేరేది ఎంచుకోండి.'},
+ emptyFav:{en:'Tap the star on an exercise to add it to My list.',te:'నా జాబితాలో చేర్చడానికి వ్యాయామం మీద నక్షత్రం నొక్కండి.'},
+ todayFocus:{en:'Today’s focus',te:'ఈ రోజు దృష్టి'}, howLong:{en:'How long today?',te:'ఈ రోజు ఎంత సేపు?'},
+ restBetween:{en:'Rest between exercises',te:'వ్యాయామాల మధ్య విశ్రాంతి'},
+ startSession:{en:'Start today’s exercises',te:'ఈ రోజు వ్యాయామాలు మొదలుపెట్టండి'}, contSession:{en:'Continue today’s exercises',te:'ఈ రోజు వ్యాయామాలు కొనసాగించండి'},
+ total:{en:'Total, with rests',te:'మొత్తం, విశ్రాంతితో కలిపి'},
+ warm:{en:'Warm-up',te:'మొదట సన్నాహం'}, mainP:{en:'Main',te:'ముఖ్యమైనవి'}, cool:{en:'Cool-down',te:'చివరగా సడలింపు'}, extra:{en:'Extra',te:'అదనం'},
+ round2:{en:'2nd time',te:'రెండోసారి'}, lightDay:{en:'Light day',te:'తేలికైన రోజు'},
+ doneToday:{en:'Done today',te:'ఈ రోజు చేసినవి'},
+ restT:{en:'Rest',te:'విశ్రాంతి'}, nextL:{en:'Next',te:'తర్వాత'}, skipRest:{en:'Start now',te:'ఇప్పుడే మొదలు'}, add30:{en:'+30 sec',te:'+30 సెక'},
+ sessDone:{en:'Today’s exercises are complete. Very good!',te:'ఈ రోజు వ్యాయామాలు పూర్తయ్యాయి. చాలా బాగుంది!'},
+ backToday:{en:'Back to Today',te:'ఈ రోజుకు తిరిగి'},
+ planSub:{en:'Each day has a different focus so the same joints are not worked every day. Every day starts with a warm-up and ends with gentle stretches.',te:'ఒకే కీళ్ళకు రోజూ ఒత్తిడి లేకుండా ప్రతి రోజుకు వేరే దృష్టి ఉంది. ప్రతి రోజు సన్నాహంతో మొదలై, సున్నితమైన సాగతీతతో ముగుస్తుంది.'},
+ planNote:{en:'Show this plan to the doctors in the family before starting. Times change with the speed and repetitions you choose.',te:'మొదలుపెట్టే ముందు ఈ ప్రణాళికను కుటుంబంలోని డాక్టర్లకు చూపించండి. మీరు ఎంచుకునే వేగం, సార్లను బట్టి సమయం మారుతుంది.'},
+ thisWeek:{en:'This week',te:'ఈ వారం'}, activeDays:{en:'Days exercised',te:'వ్యాయామం చేసిన రోజులు'}, exDone:{en:'Exercises done',te:'పూర్తైన వ్యాయామాలు'},
+ minutes:{en:'Minutes',te:'నిమిషాలు'}, streak:{en:'Days in a row',te:'వరుస రోజులు'},
+ copy:{en:'Copy summary to send',te:'సారాంశం కాపీ చేయండి'}, copied:{en:'Copied. Paste it in WhatsApp.',te:'కాపీ అయింది. వాట్సాప్‌లో పేస్ట్ చేయండి.'},
+ copyFail:{en:'Select the text below and copy it.',te:'కింది టెక్స్ట్‌ను ఎంచుకుని కాపీ చేయండి.'},
+ noneDay:{en:'No exercises on this day.',te:'ఈ రోజు వ్యాయామాలు లేవు.'},
+ progNote:{en:'Progress is saved on this phone. Use “Copy summary” to send it to the family.',te:'పురోగతి ఈ ఫోన్‌లో సేవ్ అవుతుంది. కుటుంబానికి పంపడానికి “సారాంశం కాపీ” వాడండి.'},
+ times:{en:'times',te:'సార్లు'},
+ breathing:{en:'Breathing',te:'శ్వాస'}, listenT:{en:'Listen to your body',te:'మీ శరీరం చెప్పేది వినండి'}
+};
+const CUE={
+ up:{en:'Lift slowly',te:'మెల్లగా ఎత్తండి'}, down:{en:'Lower slowly',te:'మెల్లగా దించండి'}, hold:{en:'Hold',te:'అలాగే ఉంచండి'}, rest:{en:'Relax',te:'విశ్రాంతి'},
+ straight:{en:'Straighten',te:'చాపండి'}, bend:{en:'Bend slowly',te:'మెల్లగా వంచండి'}, other:{en:'Other leg',te:'రెండో కాలు'},
+ toesUp:{en:'Toes up',te:'వేళ్ళు పైకి'}, toesDown:{en:'Toes down',te:'వేళ్ళు కిందికి'},
+ fwd:{en:'Slide forward',te:'ముందుకు జార్చండి'}, slideBack:{en:'Slide back',te:'వెనక్కి జార్చండి'},
+ close:{en:'Make a fist',te:'పిడికిలి బిగించండి'}, open:{en:'Open the hand',te:'చేయి తెరవండి'},
+ wristUp:{en:'Wrist up',te:'మణికట్టు పైకి'}, wristDown:{en:'Wrist down',te:'మణికట్టు కిందికి'},
+ nod:{en:'Chin down',te:'గడ్డం కిందికి'}, headUp:{en:'Head up',te:'తల పైకి'},
+ side:{en:'Tilt to the side',te:'పక్కకు వంచండి'}, center:{en:'Back to the middle',te:'మధ్యకు రండి'},
+ shrugUp:{en:'Shoulders up',te:'భుజాలు పైకి'}, shrugDown:{en:'Let them drop',te:'కిందికి వదలండి'},
+ lean:{en:'Lean forward',te:'ముందుకు వంగండి'}, stand:{en:'Push up to stand',te:'నెట్టి లేవండి'}, tall:{en:'Stand tall',te:'నిటారుగా నిలబడండి'},
+ sit:{en:'Sit down slowly',te:'మెల్లగా కూర్చోండి'}, sitUp:{en:'Sit up straight',te:'నిటారుగా కూర్చోండి'},
+ rise:{en:'Rise onto your toes',te:'వేళ్ళ మీద లేవండి'}, legBack:{en:'Leg back',te:'కాలు వెనక్కి'}, ret:{en:'Bring it back',te:'తిరిగి తీసుకురండి'},
+ out:{en:'Leg out to the side',te:'కాలు పక్కకు'}
+};
+/* spoken-only phrases (also recorded as clips) */
+const SAY={
+ timesGo:{en:'times. Let us begin.',te:'సార్లు చేద్దాం.'},
+ eachLeg:{en:'With each leg,',te:'ప్రతి కాలితో'},
+ eachSide:{en:'On each side,',te:'ప్రతి వైపు'},
+ done:{en:'Done! Well done.',te:'పూర్తైంది! బాగా చేశారు.'},
+ restNow:{en:'Rest now. Breathe slowly.',te:'ఇప్పుడు విశ్రాంతి తీసుకోండి. నెమ్మదిగా శ్వాస తీసుకోండి.'},
+ nextUp:{en:'The next exercise is coming.',te:'తర్వాతి వ్యాయామం వస్తోంది.'},
+ sessionDone:{en:'Today’s exercises are complete. Very good!',te:'ఈ రోజు వ్యాయామాలు పూర్తయ్యాయి. చాలా బాగుంది!'},
+ breatheOut:{en:'Breathe out.',te:'శ్వాస వదలండి.'},
+ breatheIn:{en:'Breathe in.',te:'శ్వాస తీసుకోండి.'},
+ keepBreathing:{en:'Keep breathing.',te:'శ్వాస ఆపకండి.'},
+ breathRule:{en:'Breathe out as you lift or push. Breathe in as you come back. Never hold your breath.',te:'ఎత్తేటప్పుడు లేదా నెట్టేటప్పుడు శ్వాస వదలండి. తిరిగి వచ్చేటప్పుడు శ్వాస తీసుకోండి. శ్వాసను ఎప్పుడూ ఆపవద్దు.'},
+ listenBody:{en:'Move only as far as your body comfortably allows. Do not stretch beyond that. Slowly learn your body’s limits. With daily practice you will slowly get better and be able to move a little further.',te:'మీ శరీరం సౌకర్యంగా కదిలినంత వరకే చేయండి. దానికి మించి సాగదీయవద్దు. మెల్లగా మీ శరీరం పరిమితులను అర్థం చేసుకోండి. రోజూ చేస్తే, కొద్ది కొద్దిగా మెరుగవుతారు, ఇంకొంచెం ఎక్కువ కదలగలరు.'},
+ safetyRule:{en:'If you feel sharp pain, dizziness, chest pain or shortness of breath, stop right away and rest.',te:'పదునైన నొప్పి, తల తిరగడం, ఛాతీ నొప్పి లేదా ఆయాసం వస్తే, వెంటనే ఆపి విశ్రాంతి తీసుకోండి.'}
+};
+/* breathing per movement: out on effort, in on the way back; holds = keep breathing */
+const BREATH={up:'out',straight:'out',rise:'out',stand:'out',lean:'out',legBack:'out',out:'out',shrugUp:'out',close:'out',bend:'out',fwd:'out',side:'out',nod:'out',
+ down:'in',sit:'in',ret:'in',shrugDown:'in',open:'in',slideBack:'in',center:'in',headUp:'in',sitUp:'in',hold:'keep'};
+const BKEY={out:'breatheOut',in:'breatheIn',keep:'keepBreathing'};
+const NUMS={te:['ఒకటి','రెండు','మూడు','నాలుగు','ఐదు','ఆరు','ఏడు','ఎనిమిది','తొమ్మిది','పది','పదకొండు','పన్నెండు','పదమూడు','పద్నాలుగు','పదిహేను','పదహారు','పదిహేడు','పద్దెనిమిది','పందొమ్మిది','ఇరవై'],
+ en:['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty']};
+const WD={en:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],te:['ఆది','సోమ','మంగళ','బుధ','గురు','శుక్ర','శని']};
+const WDL={en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],te:['ఆదివారం','సోమవారం','మంగళవారం','బుధవారం','గురువారం','శుక్రవారం','శనివారం']};
+const MON={en:['January','February','March','April','May','June','July','August','September','October','November','December'],te:['జనవరి','ఫిబ్రవరి','మార్చి','ఏప్రిల్','మే','జూన్','జూలై','ఆగస్టు','సెప్టెంబర్','అక్టోబర్','నవంబర్','డిసెంబర్']};
+const f=(p,d,c,h)=>[p,d,c,!!h];
+const EX=[
+{id:'knee-straighten',scene:'chair',pos:'chair',level:'easy',areas:['knees'],target:10,focus:['lN2','lF2','fN','fF'],thumb:1,
+ name:{en:'Seated knee straightening',te:'కూర్చుని మోకాలు చాపడం'},
+ why:{en:'Strengthens the thigh muscle that supports and protects the knee.',te:'మోకాలికి సపోర్ట్ ఇచ్చి కాపాడే తొడ కండరాన్ని బలపరుస్తుంది.'},
+ steps:{en:['Sit up straight in a firm chair with both feet flat on the floor.','Slowly straighten one knee until the leg is out in front of you.','Hold for 3 seconds, then slowly lower the foot. Do the same with the other leg.'],
+  te:['గట్టి కుర్చీలో నిటారుగా కూర్చోండి, రెండు పాదాలు నేల మీద ఉంచండి.','ఒక మోకాలిని మెల్లగా చాపి, కాలిని ముందుకు నిటారుగా ఎత్తండి.','3 సెకన్లు అలాగే ఉంచి, మెల్లగా పాదాన్ని దించండి. తర్వాత రెండో కాలితో చేయండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Do not lock or snap the knee straight. Keep the movement smooth.',te:'మోకాలిని బలంగా లాక్ చేయవద్దు. కదలిక మెత్తగా ఉండాలి.'},
+ frames:[f({},2,'straight'),f({lN2:84,fN:172},3,'hold',1),f({lN2:84,fN:172},2,'down'),f({},.8,'other',1),f({},2,'straight'),f({lF2:84,fF:172},3,'hold',1),f({lF2:84,fF:172},2,'down'),f({},.8,'rest',1)]},
+
+{id:'ankle-pumps',scene:'chair',pos:'chair',level:'easy',areas:['ankles','knees'],target:15,focus:['fN'],thumb:1,base:{lN1:85,lN2:38,fN:128},
+ name:{en:'Ankle pumps',te:'పాదం పైకి, కిందికి'},
+ why:{en:'Loosens stiff ankles and helps blood flow in the legs.',te:'బిగుసుకున్న చీలమండలు వదులవుతాయి, కాళ్ళలో రక్త ప్రసరణ మెరుగవుతుంది.'},
+ steps:{en:['Sit and place one heel a little forward on the floor.','Pull your toes up toward you.','Then point your toes down. Keep the heel on the floor the whole time.'],
+  te:['కూర్చుని ఒక మడమను కొంచెం ముందుకు నేల మీద ఉంచండి.','కాలి వేళ్ళను మీ వైపు పైకి లాగండి.','తర్వాత వేళ్ళను కిందికి వంచండి. మడమ ఎప్పుడూ నేల మీదే ఉండాలి.']},
+ reps:{en:'15 times with each foot',te:'ప్రతి పాదంతో 15 సార్లు'},
+ tip:{en:'You can also do this lying in bed before getting up in the morning.',te:'ఉదయం లేవడానికి ముందు మంచం మీద పడుకుని కూడా చేయవచ్చు.'},
+ frames:[f({fN:128},1.2,'toesUp'),f({fN:168},.6,'hold',1),f({fN:168},1.8,'toesDown'),f({fN:72},.6,'hold',1),f({fN:72},1.2,'toesUp')]},
+
+{id:'seated-march',scene:'chair',pos:'chair',level:'easy',areas:['hips','knees'],target:10,focus:['lN','lF','fN','fF'],thumb:1,base:{aN1:-8,aN2:-5,aF1:-8,aF2:-5},
+ name:{en:'Seated marching',te:'కూర్చుని కవాతు'},
+ why:{en:'Gently moves the hips and knees and warms up the legs.',te:'తుంటి, మోకాళ్ళను మెల్లగా కదిలించి కాళ్ళను సిద్ధం చేస్తుంది.'},
+ steps:{en:['Sit tall and hold the sides of the chair seat.','Lift one knee a little, then put the foot back down.','Lift the other knee. Keep going, like walking slowly.'],
+  te:['నిటారుగా కూర్చుని కుర్చీ సీటు పక్కలను పట్టుకోండి.','ఒక మోకాలిని కొంచెం పైకి ఎత్తి, పాదాన్ని మళ్ళీ కిందికి దించండి.','రెండో మోకాలిని ఎత్తండి. మెల్లగా నడుస్తున్నట్టు కొనసాగించండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Lift only as high as feels comfortable.',te:'సౌకర్యంగా ఉన్నంత వరకే ఎత్తండి.'},
+ frames:[f({},1.3,'up'),f({lN1:118,lN2:20,fN:105},.6,'hold',1),f({lN1:118,lN2:20,fN:105},1.3,'down'),f({},.5,'other',1),f({},1.3,'up'),f({lF1:118,lF2:20,fF:105},.6,'hold',1),f({lF1:118,lF2:20,fF:105},1.3,'down'),f({},.5,'rest',1)]},
+
+{id:'heel-slide-seated',scene:'chair',pos:'chair',level:'easy',areas:['knees'],target:10,focus:['lN','fN'],thumb:1,base:{tLNx:205,tLNy:245},
+ name:{en:'Seated heel slides',te:'కూర్చుని మడమ జార్చడం'},
+ why:{en:'Helps the knee bend and straighten more easily.',te:'మోకాలు సులభంగా వంగడానికి, చాపడానికి సహాయపడుతుంది.'},
+ steps:{en:['Sit with both feet flat on the floor.','Slide one foot forward along the floor, straightening the knee a little.','Slide it back under the chair, only as far as is comfortable.'],
+  te:['రెండు పాదాలు నేల మీద ఉంచి కూర్చోండి.','ఒక పాదాన్ని నేల మీద ముందుకు జార్చి, మోకాలిని కొంచెం చాపండి.','తర్వాత సౌకర్యంగా ఉన్నంత వరకు కుర్చీ కిందకి వెనక్కి జార్చండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Wearing a sock on a smooth floor makes the foot slide more easily.',te:'నున్నటి నేల మీద సాక్స్ వేసుకుంటే పాదం సులభంగా జారుతుంది.'},
+ frames:[f({},2,'fwd'),f({tLNx:243},.8,'hold',1),f({tLNx:243},2.6,'slideBack'),f({tLNx:176},.8,'hold',1),f({tLNx:176},1.6,'fwd')]},
+
+{id:'arm-raise',scene:'chair',pos:'chair',level:'easy',areas:['shoulders'],target:10,focus:['aN','aF','hN','hF'],thumb:2,
+ name:{en:'Seated arm raises',te:'కూర్చుని చేతులు పైకి ఎత్తడం'},
+ why:{en:'Keeps the shoulders moving so they do not get stiff.',te:'భుజాలు బిగుసుకుపోకుండా కదులుతూ ఉంటాయి.'},
+ steps:{en:['Sit tall with your hands resting on your lap.','Slowly lift both arms forward and up, as high as is comfortable.','Slowly bring them back down to your lap.'],
+  te:['చేతులు ఒడిలో ఉంచి నిటారుగా కూర్చోండి.','రెండు చేతులను మెల్లగా ముందుకు, సౌకర్యంగా ఉన్నంత వరకు పైకి ఎత్తండి.','మెల్లగా మళ్ళీ ఒడిలోకి దించండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'Breathe in as the arms go up, breathe out as they come down. If one shoulder hurts, lift only that arm halfway.',te:'చేతులు పైకి వెళ్ళేటప్పుడు శ్వాస తీసుకోండి, కిందికి వచ్చేటప్పుడు వదలండి. ఒక భుజం నొప్పిగా ఉంటే, ఆ చేతిని సగం వరకే ఎత్తండి.'},
+ frames:[f({},1.8,'up'),f({aN1:90,aN2:90,aF1:90,aF2:90},1.8,'up'),f({aN1:158,aN2:165,aF1:158,aF2:165},1.5,'hold',1),f({aN1:158,aN2:165,aF1:158,aF2:165},1.8,'down'),f({aN1:90,aN2:90,aF1:90,aF2:90},1.8,'down'),f({},.8,'rest',1)]},
+
+{id:'elbow-bend',scene:'chair',pos:'chair',level:'easy',areas:['hands'],target:10,focus:['aN2','aF2','hN','hF'],thumb:1,base:{aN1:4,aN2:4,aF1:4,aF2:4},
+ name:{en:'Elbow bends',te:'మోచేయి వంచడం'},
+ why:{en:'Keeps the elbows flexible and the arms strong for daily work.',te:'మోచేతులు సులభంగా వంగుతాయి, రోజువారీ పనులకు చేతులు బలంగా ఉంటాయి.'},
+ steps:{en:['Sit with your arms hanging by your sides, palms facing forward.','Bend the elbows and bring your hands up toward your shoulders.','Slowly straighten the arms again.'],
+  te:['చేతులు పక్కన వేలాడదీసి, అరచేతులు ముందుకు ఉండేలా కూర్చోండి.','మోచేతులు వంచి చేతులను భుజాల వైపు పైకి తీసుకురండి.','మెల్లగా మళ్ళీ చేతులు చాపండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'When this feels easy, hold a small water bottle in each hand.',te:'ఇది సులభంగా అనిపించినప్పుడు, ప్రతి చేతిలో చిన్న నీళ్ళ సీసా పట్టుకోండి.'},
+ frames:[f({},2,'bend'),f({aN1:10,aN2:160,aF1:10,aF2:160},1,'hold',1),f({aN1:10,aN2:160,aF1:10,aF2:160},2,'straight'),f({},.8,'rest',1)]},
+
+{id:'fist',scene:'chair',pos:'chair',level:'easy',areas:['hands'],target:10,focus:['hN','hF'],thumb:1,base:{aN1:72,aN2:88,aF1:72,aF2:88},
+ name:{en:'Open and close the hands',te:'పిడికిలి బిగించడం, తెరవడం'},
+ why:{en:'Eases stiff fingers and finger joints.',te:'వేళ్ళు, వేళ్ళ కీళ్ళ బిగువు తగ్గుతుంది.'},
+ steps:{en:['Hold your hands out in front of you.','Slowly close the fingers into a soft fist.','Open the hand and spread the fingers wide.'],
+  te:['చేతులను ముందుకు చాపండి.','వేళ్ళను మెల్లగా మడిచి మెత్తని పిడికిలి బిగించండి.','చేయి తెరిచి వేళ్ళను విశాలంగా చాపండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'In the morning, soaking the hands in warm water first makes this easier.',te:'ఉదయం ముందుగా గోరువెచ్చని నీళ్ళలో చేతులు ఉంచితే సులభంగా ఉంటుంది.'},
+ frames:[f({grip:0},1.4,'close'),f({grip:1},1,'hold',1),f({grip:1},1.4,'open'),f({grip:0},1,'rest',1)]},
+
+{id:'wrist',scene:'chair',pos:'chair',level:'easy',areas:['hands'],target:10,focus:['hN','hF'],thumb:1,base:{aN1:72,aN2:88,aF1:72,aF2:88,hN:88,hF:88},
+ name:{en:'Wrist bends',te:'మణికట్టు పైకి, కిందికి'},
+ why:{en:'Keeps the wrists loose for holding and lifting things.',te:'వస్తువులు పట్టుకోవడానికి, ఎత్తడానికి మణికట్లు వదులుగా ఉంటాయి.'},
+ steps:{en:['Sit and hold your arms out in front, or rest your forearms on a table.','Slowly bend the wrists up.','Slowly bend them down.'],
+  te:['కూర్చుని చేతులను ముందుకు చాపండి, లేదా ముంజేతులను టేబుల్ మీద ఉంచండి.','మణికట్లను మెల్లగా పైకి వంచండి.','మెల్లగా కిందికి వంచండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'Move only the hand. Keep the forearm still.',te:'చేతిని మాత్రమే కదపండి. ముంజేయి కదలకూడదు.'},
+ frames:[f({},1.4,'wristUp'),f({hN:140,hF:140},.8,'hold',1),f({hN:140,hF:140},2,'wristDown'),f({hN:35,hF:35},.8,'hold',1),f({hN:35,hF:35},1.4,'wristUp')]},
+
+{id:'neck-nod',scene:'chair',pos:'chair',level:'easy',areas:['neck'],target:5,focus:['head'],thumb:1,
+ name:{en:'Gentle neck nod',te:'మెడ ముందుకు వంచడం'},
+ why:{en:'Relieves stiffness at the back of the neck.',te:'మెడ వెనుక బిగువు తగ్గుతుంది.'},
+ steps:{en:['Sit tall and look straight ahead.','Slowly lower your chin toward your chest.','Slowly lift your head back to straight. Do not tip the head far back.'],
+  te:['నిటారుగా కూర్చుని ముందుకు చూడండి.','గడ్డాన్ని మెల్లగా ఛాతీ వైపు దించండి.','మెల్లగా తలను మళ్ళీ నిటారుగా ఎత్తండి. తలను వెనక్కి ఎక్కువగా వంచవద్దు.']},
+ reps:{en:'5 times',te:'5 సార్లు'},
+ tip:{en:'Stop if you feel dizzy.',te:'తల తిరిగినట్టు అనిపిస్తే వెంటనే ఆపండి.'},
+ frames:[f({},2,'nod'),f({head:-28},1.5,'hold',1),f({head:-28},2,'headUp'),f({},1,'rest',1)]},
+
+{id:'neck-tilt',scene:'frontChair',pos:'chair',level:'easy',areas:['neck'],target:5,focus:['head'],thumb:1,
+ name:{en:'Neck side tilt',te:'మెడ పక్కకు వంచడం'},
+ why:{en:'Stretches the sides of the neck and upper shoulders.',te:'మెడ పక్కలు, భుజాల పైభాగం సాగుతాయి.'},
+ steps:{en:['Sit tall with your shoulders relaxed.','Slowly tilt one ear toward the shoulder on that side.','Come back to the middle, then tilt to the other side.'],
+  te:['భుజాలు వదులుగా ఉంచి నిటారుగా కూర్చోండి.','ఒక చెవిని మెల్లగా అదే వైపు భుజం వైపు వంచండి.','మధ్యకు తిరిగి వచ్చి, రెండో వైపు వంచండి.']},
+ reps:{en:'5 times to each side',te:'ప్రతి వైపు 5 సార్లు'},
+ tip:{en:'Keep the shoulders down. Do not lift them toward the ears.',te:'భుజాలను కిందికే ఉంచండి. చెవుల వైపు ఎత్తవద్దు.'},
+ frames:[f({},1.8,'side'),f({head:22},2,'hold',1),f({head:22},1.8,'center'),f({},.6,'rest',1),f({},1.8,'side'),f({head:-22},2,'hold',1),f({head:-22},1.8,'center'),f({},.6,'rest',1)]},
+
+{id:'shrug',scene:'frontChair',pos:'chair',level:'easy',areas:['shoulders','neck'],target:10,focus:['shrug'],thumb:1,
+ name:{en:'Shoulder shrugs',te:'భుజాలు పైకి ఎత్తడం'},
+ why:{en:'Releases tension in the shoulders and neck.',te:'భుజాలు, మెడలో బిగువు తగ్గుతుంది.'},
+ steps:{en:['Sit with your arms relaxed at your sides.','Lift both shoulders up toward your ears.','Hold for 2 seconds, then let them drop slowly.'],
+  te:['చేతులు వదులుగా పక్కన ఉంచి కూర్చోండి.','రెండు భుజాలను చెవుల వైపు పైకి ఎత్తండి.','2 సెకన్లు ఆపి, మెల్లగా కిందికి వదలండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'Keep breathing normally. Do not hold your breath.',te:'మామూలుగా శ్వాస తీసుకుంటూ ఉండండి. శ్వాసను ఆపవద్దు.'},
+ frames:[f({},1.2,'shrugUp'),f({shrug:11},2,'hold',1),f({shrug:11},1.6,'shrugDown'),f({},1,'rest',1)]},
+
+{id:'side-bend',scene:'frontChair',pos:'chair',level:'easy',areas:['back'],target:5,focus:['torso'],thumb:1,
+ name:{en:'Seated side bend',te:'కూర్చుని పక్కకు వంగడం'},
+ why:{en:'Gently stretches the back and the sides of the waist.',te:'వీపు, నడుము పక్కలు మెల్లగా సాగుతాయి.'},
+ steps:{en:['Sit tall, feet flat, arms hanging down by your sides.','Slowly lean to one side, letting that hand slide toward the floor.','Come back up straight, then lean to the other side.'],
+  te:['పాదాలు నేల మీద ఉంచి, చేతులు పక్కన వేలాడదీసి నిటారుగా కూర్చోండి.','మెల్లగా ఒక పక్కకు వంగి, ఆ చేతిని నేల వైపు జార్చండి.','మళ్ళీ నిటారుగా వచ్చి, రెండో పక్కకు వంగండి.']},
+ reps:{en:'5 times to each side',te:'ప్రతి వైపు 5 సార్లు'},
+ tip:{en:'Lean only a little. It should feel like a stretch, not pain.',te:'కొంచెమే వంగండి. సాగినట్టు అనిపించాలి, నొప్పి కాదు.'},
+ frames:[f({},2,'side'),f({torso:166},2,'hold',1),f({torso:166},2,'center'),f({},.6,'rest',1),f({},2,'side'),f({torso:194},2,'hold',1),f({torso:194},2,'center'),f({},.6,'rest',1)]},
+
+{id:'sit-to-stand',scene:'chair',pos:'chair',level:'mod',areas:['knees','hips'],target:5,focus:['lN','lF'],thumb:2,anchor:'F',base:{ax:205,ay:245,aN1:12,aN2:40,aF1:12,aF2:40},
+ name:{en:'Sit to stand',te:'కుర్చీ నుండి లేవడం, కూర్చోవడం'},
+ why:{en:'Builds the leg strength needed to get up on your own.',te:'సొంతంగా లేవడానికి కావలసిన కాళ్ళ బలం పెరుగుతుంది.'},
+ steps:{en:['Sit near the front of a firm chair with armrests. Keep your feet slightly back.','Lean forward so your nose is over your toes, then push with your hands and legs to stand up.','Stand tall, then sit back down slowly, with control.'],
+  te:['చేతులు పెట్టుకునే గట్టి కుర్చీ ముందు భాగంలో కూర్చోండి. పాదాలు కొంచెం వెనక్కి ఉంచండి.','ముక్కు కాలి వేళ్ళ పైకి వచ్చేలా ముందుకు వంగి, చేతులు, కాళ్ళతో నెట్టి లేచి నిలబడండి.','నిటారుగా నిలబడి, తర్వాత మెల్లగా నియంత్రణతో కూర్చోండి.']},
+ reps:{en:'5 times',te:'5 సార్లు'},
+ tip:{en:'Have someone nearby the first few times. If it is hard, put a firm cushion on the seat to make it higher.',te:'మొదటి కొన్ని సార్లు ఎవరైనా పక్కన ఉండాలి. కష్టంగా ఉంటే, సీటు ఎత్తుగా ఉండేలా గట్టి దిండు పెట్టండి.'},
+ frames:[f({},1.6,'lean'),f({torso:140,aN1:30,aN2:55,aF1:30,aF2:55},2.2,'stand'),f({torso:150,lN1:45,lN2:12,lF1:45,lF2:12,aN1:20,aN2:35,aF1:20,aF2:35},2,'stand'),f({torso:180,lN1:0,lN2:0,lF1:0,lF2:0,aN1:3,aN2:3,aF1:3,aF2:3},1.5,'tall',1),f({torso:180,lN1:0,lN2:0,lF1:0,lF2:0,aN1:3,aN2:3,aF1:3,aF2:3},2,'sit'),f({torso:148,lN1:50,lN2:12,lF1:50,lF2:12,aN1:20,aN2:35,aF1:20,aF2:35},2,'sit'),f({torso:150,aN1:30,aN2:55,aF1:30,aF2:55},1.4,'sitUp'),f({},1,'rest',1)]},
+
+{id:'heel-raise',scene:'support',pos:'stand',level:'easy',areas:['ankles','knees'],target:10,focus:['fN','fF'],thumb:1,
+ name:{en:'Heel raises',te:'మడమలు ఎత్తడం'},
+ why:{en:'Strengthens the calves and ankles for steadier walking.',te:'పిక్కలు, చీలమండలు బలపడి నడక స్థిరంగా ఉంటుంది.'},
+ steps:{en:['Stand behind a sturdy chair and hold its back with both hands.','Slowly rise up onto your toes.','Slowly lower your heels back to the floor.'],
+  te:['బలమైన కుర్చీ వెనుక నిలబడి రెండు చేతులతో దాని వీపును పట్టుకోండి.','మెల్లగా కాలి వేళ్ళ మీద పైకి లేవండి.','మెల్లగా మడమలను నేల మీదకు దించండి.']},
+ reps:{en:'10 times',te:'10 సార్లు'},
+ tip:{en:'Use a chair that will not slide, or stand at the kitchen counter.',te:'జారని కుర్చీ వాడండి, లేదా వంటగది గట్టు దగ్గర నిలబడండి.'},
+ frames:[f({},1.8,'rise'),f({ay:233,fN:50,fF:50},1.5,'hold',1),f({ay:233,fN:50,fF:50},1.8,'down'),f({},1,'rest',1)]},
+
+{id:'knee-curl',scene:'support',pos:'stand',level:'easy',areas:['knees'],target:10,focus:['lN2','fN'],thumb:1,
+ name:{en:'Standing knee curls',te:'నిలబడి మడమ వెనక్కి మడవడం'},
+ why:{en:'Strengthens the back of the thigh and keeps the knee bending well.',te:'తొడ వెనుక కండరం బలపడుతుంది, మోకాలు బాగా వంగుతుంది.'},
+ steps:{en:['Stand holding the back of a sturdy chair.','Slowly bend one knee, bringing the heel up behind you.','Slowly lower the foot. Then do the other leg.'],
+  te:['బలమైన కుర్చీ వీపును పట్టుకుని నిలబడండి.','ఒక మోకాలిని మెల్లగా వంచి, మడమను వెనక్కి పైకి తీసుకురండి.','మెల్లగా పాదాన్ని దించండి. తర్వాత రెండో కాలితో చేయండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Keep both knees side by side. The heel goes up, not out.',te:'రెండు మోకాళ్ళు పక్కపక్కనే ఉండాలి. మడమ పైకి వెళ్ళాలి, పక్కకు కాదు.'},
+ frames:[f({},2,'bend'),f({lN1:-5,lN2:-80,fN:10},1.5,'hold',1),f({lN1:-5,lN2:-80,fN:10},2,'down'),f({},1,'rest',1)]},
+
+{id:'mini-squat',scene:'support',pos:'stand',level:'mod',areas:['knees','hips'],target:8,focus:['lN','lF'],thumb:1,
+ name:{en:'Mini squats with support',te:'కుర్చీ పట్టుకుని కొంచెం కూర్చోవడం'},
+ why:{en:'Strengthens the thighs and hips, which takes pressure off the knees.',te:'తొడ, తుంటి కండరాలు బలపడి మోకాళ్ళపై ఒత్తిడి తగ్గుతుంది.'},
+ steps:{en:['Stand behind a sturdy chair and hold its back.','Bend the knees a little, as if starting to sit. Keep your heels on the floor.','Slowly stand back up straight.'],
+  te:['బలమైన కుర్చీ వెనుక నిలబడి దాని వీపును పట్టుకోండి.','కూర్చోబోతున్నట్టు మోకాళ్ళను కొంచెం వంచండి. మడమలు నేల మీదే ఉండాలి.','మెల్లగా మళ్ళీ నిటారుగా నిలబడండి.']},
+ reps:{en:'8 times',te:'8 సార్లు'},
+ tip:{en:'A small bend is enough. Stop before it hurts.',te:'కొంచెం వంచితే చాలు. నొప్పి రాకముందే ఆపండి.'},
+ frames:[f({},2.4,'bend'),f({lN1:28,lN2:-22,lF1:28,lF2:-22,torso:165},1.5,'hold',1),f({lN1:28,lN2:-22,lF1:28,lF2:-22,torso:165},2.4,'tall'),f({},1,'rest',1)]},
+
+{id:'march-stand',scene:'support',pos:'stand',level:'mod',areas:['hips','knees'],target:10,focus:['lN','fN'],thumb:1,
+ name:{en:'Standing march',te:'కుర్చీ పట్టుకుని కవాతు'},
+ why:{en:'Improves balance and hip movement for walking.',te:'నడకకు కావలసిన సమతుల్యత, తుంటి కదలిక మెరుగవుతాయి.'},
+ steps:{en:['Stand holding the back of a sturdy chair.','Slowly lift one knee up, then put the foot down.','Lift the other knee. Keep a slow, steady rhythm.'],
+  te:['బలమైన కుర్చీ వీపును పట్టుకుని నిలబడండి.','ఒక మోకాలిని మెల్లగా పైకి ఎత్తి, పాదాన్ని దించండి.','రెండో మోకాలిని ఎత్తండి. నెమ్మదిగా, ఒకే వేగంతో కొనసాగించండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Stand up straight. Do not lean back when the knee comes up.',te:'నిటారుగా నిలబడండి. మోకాలు పైకి వచ్చినప్పుడు వెనక్కి వంగవద్దు.'},
+ frames:[f({},1.4,'up'),f({lN1:62,lN2:2},.8,'hold',1),f({lN1:62,lN2:2},1.4,'down'),f({},.6,'rest',1)]},
+
+{id:'leg-back',scene:'support',pos:'stand',level:'mod',areas:['hips','back'],target:8,focus:['lN','fN'],thumb:1,
+ name:{en:'Leg moves back',te:'కాలు వెనక్కి చాపడం'},
+ why:{en:'Strengthens the hips and lower back.',te:'తుంటి, నడుము కింది భాగం బలపడతాయి.'},
+ steps:{en:['Stand holding the chair with your back straight.','Keeping the leg straight, slowly move it backward. Do not lean forward.','Bring it back. Then do the other leg.'],
+  te:['వీపు నిటారుగా ఉంచి కుర్చీ పట్టుకుని నిలబడండి.','కాలిని నిటారుగా ఉంచి మెల్లగా వెనక్కి చాపండి. ముందుకు వంగవద్దు.','తిరిగి తీసుకురండి. తర్వాత రెండో కాలితో చేయండి.']},
+ reps:{en:'8 times with each leg',te:'ప్రతి కాలితో 8 సార్లు'},
+ tip:{en:'A small movement is enough. Do not swing the leg.',te:'చిన్న కదలిక చాలు. కాలిని ఊపవద్దు.'},
+ frames:[f({},2,'legBack'),f({lN1:-24,lN2:-24,fN:66},1.5,'hold',1),f({lN1:-24,lN2:-24,fN:66},2,'ret'),f({},1,'rest',1)]},
+
+{id:'side-leg',scene:'frontStand',pos:'stand',level:'mod',areas:['hips'],target:8,focus:['lF','fF'],thumb:1,
+ name:{en:'Side leg raise',te:'కాలు పక్కకు ఎత్తడం'},
+ why:{en:'Strengthens the side hip muscles that keep you steady when walking.',te:'నడిచేటప్పుడు స్థిరంగా ఉంచే తుంటి పక్క కండరాలు బలపడతాయి.'},
+ steps:{en:['Stand sideways to a sturdy chair and hold it with one hand.','Slowly lift the outer leg out to the side. Keep your toes pointing forward.','Slowly bring it back. Turn around and do the other leg.'],
+  te:['బలమైన కుర్చీకి పక్కగా నిలబడి ఒక చేత్తో పట్టుకోండి.','బయటి కాలిని మెల్లగా పక్కకు ఎత్తండి. కాలి వేళ్ళు ముందుకే ఉండాలి.','మెల్లగా తిరిగి తీసుకురండి. తిరిగి నిలబడి రెండో కాలితో చేయండి.']},
+ reps:{en:'8 times with each leg',te:'ప్రతి కాలితో 8 సార్లు'},
+ tip:{en:'Keep the body upright. Do not lean toward the chair.',te:'శరీరం నిటారుగా ఉంచండి. కుర్చీ వైపు వంగవద్దు.'},
+ frames:[f({},2,'out'),f({lF1:26,lF2:26},1.2,'hold',1),f({lF1:26,lF2:26},2,'ret'),f({},1,'rest',1)]},
+
+{id:'straight-leg-raise',scene:'bed',pos:'bed',level:'easy',areas:['knees','hips'],target:8,focus:['lN','fN'],thumb:1,base:{lF1:140,lF2:40,fF:90},
+ name:{en:'Straight leg raise in bed',te:'పడుకుని కాలు నిటారుగా ఎత్తడం'},
+ why:{en:'Strengthens the thigh without bending a painful knee.',te:'నొప్పి ఉన్న మోకాలిని వంచకుండానే తొడ కండరం బలపడుతుంది.'},
+ steps:{en:['Lie on your back in bed. Bend one knee and keep that foot flat.','Tighten the thigh of the straight leg and lift it to the height of the bent knee.','Hold for 3 seconds and lower it slowly. Then do the other leg.'],
+  te:['మంచం మీద వెల్లకిలా పడుకోండి. ఒక మోకాలు వంచి ఆ పాదం మంచం మీద ఉంచండి.','నిటారుగా ఉన్న కాలి తొడను బిగించి, వంచిన మోకాలి ఎత్తు వరకు ఎత్తండి.','3 సెకన్లు ఆపి మెల్లగా దించండి. తర్వాత రెండో కాలితో చేయండి.']},
+ reps:{en:'8 times with each leg',te:'ప్రతి కాలితో 8 సార్లు'},
+ tip:{en:'Keep the lifted knee straight the whole time.',te:'ఎత్తిన కాలి మోకాలు ఎప్పుడూ నిటారుగానే ఉండాలి.'},
+ frames:[f({},2,'up'),f({lN1:118,lN2:118,fN:208},3,'hold',1),f({lN1:118,lN2:118,fN:208},2,'down'),f({},1.2,'rest',1)]},
+
+{id:'bed-heel-slide',scene:'bed',pos:'bed',level:'easy',areas:['knees'],target:10,focus:['lN','fN'],thumb:1,base:{tLNx:280,tLNy:188},
+ name:{en:'Heel slides in bed',te:'పడుకుని మడమ జార్చడం'},
+ why:{en:'Gently increases how far the knee can bend.',te:'మోకాలు ఎంత వంగుతుందో మెల్లగా పెరుగుతుంది.'},
+ steps:{en:['Lie on your back with both legs straight.','Slowly slide one heel toward your hip, bending the knee.','Slide it back until the leg is straight again. Then do the other leg.'],
+  te:['రెండు కాళ్ళు చాపి వెల్లకిలా పడుకోండి.','ఒక మడమను మెల్లగా తుంటి వైపు జార్చి, మోకాలిని వంచండి.','కాలు మళ్ళీ నిటారుగా అయ్యే వరకు వెనక్కి జార్చండి. తర్వాత రెండో కాలితో చేయండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'Bend only until you feel a gentle stretch.',te:'మెల్లగా సాగినట్టు అనిపించే వరకే వంచండి.'},
+ frames:[f({},2.4,'bend'),f({tLNx:222},1,'hold',1),f({tLNx:222},2.4,'straight'),f({},1,'rest',1)]},
+
+{id:'short-arc',scene:'bed',pos:'bed',level:'easy',areas:['knees'],target:10,focus:['lN2','fN'],thumb:1,roll:true,base:{lN1:100,lN2:80,fN:170},
+ name:{en:'Knee straightening over a towel roll',te:'మోకాలి కింద టవల్‌తో కాలు చాపడం'},
+ why:{en:'Strengthens the thigh with very little strain on the knee.',te:'మోకాలిపై చాలా తక్కువ ఒత్తిడితో తొడ కండరం బలపడుతుంది.'},
+ steps:{en:['Lie on your back with a rolled towel under one knee.','Straighten the knee so the heel lifts off the bed. Keep the back of the knee on the towel.','Hold for 3 seconds, then lower slowly.'],
+  te:['వెల్లకిలా పడుకుని, ఒక మోకాలి కింద చుట్టిన టవల్ పెట్టండి.','మోకాలిని చాపి మడమను మంచం నుండి పైకి ఎత్తండి. మోకాలి వెనుక భాగం టవల్ మీదే ఉండాలి.','3 సెకన్లు ఆపి, మెల్లగా దించండి.']},
+ reps:{en:'10 times with each leg',te:'ప్రతి కాలితో 10 సార్లు'},
+ tip:{en:'A big bath towel rolled tightly works well.',te:'పెద్ద స్నానపు టవల్‌ను గట్టిగా చుట్టి వాడితే బాగుంటుంది.'},
+ frames:[f({},2,'straight'),f({lN2:100,fN:190},3,'hold',1),f({lN2:100,fN:190},2,'down'),f({},1.2,'rest',1)]}
+];
+const PER={'knee-straighten':'leg','ankle-pumps':'leg','seated-march':'leg','heel-slide-seated':'leg','knee-curl':'leg','march-stand':'leg','leg-back':'leg','side-leg':'leg','straight-leg-raise':'leg','bed-heel-slide':'leg','short-arc':'leg','neck-tilt':'side','side-bend':'side'};
+EX.forEach(e=>{e.per=PER[e.id]||null;delete e.reps});
+const BYID=Object.fromEntries(EX.map(e=>[e.id,e]));
+/* week plan: index = Date.getDay() (0 = Sunday) */
+const DAYS=[
+ {focus:{en:'Gentle stretches',te:'సున్నితమైన సాగతీత'},light:true,warm:['ankle-pumps','arm-raise'],main:['neck-nod','neck-tilt','shrug','side-bend','fist','wrist'],cool:[]},
+ {focus:{en:'Knees, on a chair',te:'మోకాళ్ళు, కుర్చీలో'},warm:['seated-march','ankle-pumps'],main:['knee-straighten','heel-slide-seated','sit-to-stand','elbow-bend','fist'],cool:['neck-tilt','shrug']},
+ {focus:{en:'Arms, hands and neck',te:'చేతులు, వేళ్ళు, మెడ'},warm:['seated-march','shrug'],main:['arm-raise','elbow-bend','wrist','fist','side-bend','knee-straighten'],cool:['neck-nod','neck-tilt']},
+ {focus:{en:'Standing strength and balance',te:'నిలబడి బలం, సమతుల్యత'},warm:['seated-march','ankle-pumps'],main:['heel-raise','knee-curl','mini-squat','march-stand','side-leg','leg-back'],cool:['side-bend','shrug']},
+ {focus:{en:'Knees, in bed and on a chair',te:'మోకాళ్ళు, మంచం మీద, కుర్చీలో'},warm:['ankle-pumps','bed-heel-slide'],main:['straight-leg-raise','short-arc','knee-straighten','heel-slide-seated','sit-to-stand'],cool:['neck-tilt','shrug']},
+ {focus:{en:'Hips and arms',te:'తుంటి, చేతులు'},warm:['seated-march','arm-raise'],main:['knee-curl','side-leg','leg-back','elbow-bend','wrist','knee-straighten'],cool:['side-bend','neck-nod']},
+ {focus:{en:'Mixed and balance',te:'అన్నీ కలిపి, సమతుల్యత'},warm:['seated-march','ankle-pumps'],main:['heel-raise','march-stand','mini-squat','knee-straighten','heel-slide-seated','arm-raise'],cool:['neck-tilt','shrug']}
+];
+const EXTRA=['fist','wrist','shrug','ankle-pumps','elbow-bend','neck-tilt'];
+const introText=(e,l)=>[e.name[l]+'.',...e.steps[l],(l==='te'?'జాగ్రత్త: ':'Be careful: ')+e.tip[l]].join(' ');
+function clipText(key,l){
+ if(key.startsWith('intro-'))return introText(BYID[key.slice(6)],l);
+ if(key.startsWith('cue-'))return CUE[key.slice(4)][l];
+ if(key.startsWith('why-'))return BYID[key.slice(4)].why[l];
+ if(/^n\d+$/.test(key))return NUMS[l][+key.slice(1)-1];
+ return SAY[key][l];
+}
+/* recording order — the Telugu voice script follows exactly this order */
+function clipGroups(){
+ return [
+  {name:'1-numbers-and-words',keys:[...NUMS.te.map((_,i)=>'n'+(i+1)),...Object.keys(SAY)]},
+  {name:'2-commands',keys:Object.keys(CUE).map(k=>'cue-'+k)},
+  {name:'3-instructions-a',keys:EX.slice(0,11).map(e=>'intro-'+e.id)},
+  {name:'4-instructions-b',keys:EX.slice(11).map(e=>'intro-'+e.id)},
+  {name:'5-purposes',keys:EX.map(e=>'why-'+e.id)}
+ ];
+}
+/* ===== END DATA ===== */
+
+/* ===== 2. FIGURE ===== */
+/* ---------- figure geometry ---------- */
+const D=Math.PI/180;
+const vec=(a,l=1)=>[Math.sin(a*D)*l,Math.cos(a*D)*l];
+const add=(a,b,k=1)=>[a[0]+b[0]*k,a[1]+b[1]*k];
+const LEN={torso:80,neck:9,head:15,ua:44,fa:40,th:55,sh:55,ft:18};
+const SC={
+ chair:{view:'side',prop:'chair',floor:249,base:{hx:150,hy:190,torso:180,head:0,aN1:18,aN2:60,aF1:18,aF2:60,lN1:90,lN2:0,lF1:90,lF2:0,fN:90,fF:90,grip:0,shrug:0}},
+ support:{view:'side',prop:'support',floor:249,anchor:'F',base:{ax:150,ay:245,torso:180,head:0,tANx:214,tANy:109,tAFx:214,tAFy:109,lN1:0,lN2:0,lF1:0,lF2:0,fN:90,fF:90,grip:.6,shrug:0}},
+ bed:{view:'side',prop:'bed',floor:249,base:{hx:170,hy:188,torso:-90,head:-10,aN1:95,aN2:92,aF1:95,aF2:92,lN1:90,lN2:90,lF1:90,lF2:90,fN:180,fF:180,grip:0,shrug:0}},
+ frontChair:{view:'front',prop:'frontChair',floor:258,ts:.35,base:{hx:160,hy:182,torso:180,head:0,aN1:8,aN2:3,aF1:8,aF2:3,lN1:25,lN2:2,lF1:25,lF2:2,fN:90,fF:90,grip:0,shrug:0}},
+ frontStand:{view:'front',prop:'frontSupport',floor:249,anchor:'N',base:{ax:178,ay:245,torso:180,head:0,tANx:239,tANy:111,aF1:10,aF2:4,lN1:3,lN2:0,lF1:3,lF2:0,fN:90,fF:90,grip:.6,shrug:0}}
+};
+function ik(ox,oy,tx,ty,l1,l2,sign){
+ const dx=tx-ox,dy=ty-oy;
+ const d=Math.min(Math.max(Math.hypot(dx,dy),Math.abs(l1-l2)+.01),l1+l2-.01);
+ const base=Math.atan2(dx,dy)/D;
+ const alpha=Math.acos(Math.min(1,Math.max(-1,(l1*l1+d*d-l2*l2)/(2*l1*d))))/D;
+ const a1=base+sign*alpha;
+ const e=[ox+Math.sin(a1*D)*l1,oy+Math.cos(a1*D)*l1];
+ return [a1,Math.atan2(tx-e[0],ty-e[1])/D];
+}
+function skel(p,sc,anchor){
+ const front=sc.view==='front',ts=sc.ts||1;
+ const R=vec(p.torso-90),T=vec(p.torso);
+ const hipOff=front?12:0,shOff=front?24:0;
+ const mir=(s,a)=>front&&s==='F'?-a:a, sg=s=>s==='N'?1:-1;
+ let hc;
+ if(anchor){
+  const s=anchor,sv=vec(mir(s,p['l'+s+'2']),LEN.sh),tv=vec(mir(s,p['l'+s+'1']),LEN.th*ts);
+  hc=add([p.ax-sv[0]-tv[0],p.ay-sv[1]-tv[1]],R,-sg(s)*hipOff);
+ } else hc=[p.hx,p.hy];
+ const neck=add(hc,T,LEN.torso);
+ const shC=add(neck,T,-(front?6:4)+(p.shrug||0));
+ const k={front,hc,neck,sh:{},hip:{},el:{},wr:{},hA:{},kn:{},an:{},toe:{}};
+ for(const s of ['F','N']){
+  const sh=add(shC,R,sg(s)*shOff),hp=add(hc,R,sg(s)*hipOff);
+  k.sh[s]=sh;k.hip[s]=hp;
+  let a1,a2;const tx=p['tA'+s+'x'],ty=p['tA'+s+'y'];
+  if(tx!=null)[a1,a2]=ik(sh[0],sh[1],tx,ty,LEN.ua,LEN.fa,(front&&s==='F')?1:-1);
+  else{a1=mir(s,p['a'+s+'1']);a2=mir(s,p['a'+s+'2']);}
+  k.el[s]=add(sh,vec(a1),LEN.ua);k.wr[s]=add(k.el[s],vec(a2),LEN.fa);
+  k.hA[s]=p['h'+s]!=null?mir(s,p['h'+s]):a2;
+  let l1,l2;const lx=p['tL'+s+'x'],ly=p['tL'+s+'y'];
+  if(lx!=null)[l1,l2]=ik(hp[0],hp[1],lx,ly,LEN.th*ts,LEN.sh,(front&&s==='F')?-1:1);
+  else{l1=mir(s,p['l'+s+'1']);l2=mir(s,p['l'+s+'2']);}
+  k.kn[s]=add(hp,vec(l1),LEN.th*ts);k.an[s]=add(k.kn[s],vec(l2),LEN.sh);
+  k.toe[s]=add(k.an[s],vec(mir(s,p['f'+s])),front?9:LEN.ft);
+ }
+ k.hd=p.torso+(p.head||0);
+ k.neckTop=add(neck,vec(k.hd),LEN.neck);
+ k.headC=add(neck,vec(k.hd),LEN.neck+LEN.head);
+ return k;
+}
+const n1=v=>v.toFixed(1);
+const Ln=(a,b,c,w)=>`<line x1="${n1(a[0])}" y1="${n1(a[1])}" x2="${n1(b[0])}" y2="${n1(b[1])}" class="${c}" stroke-width="${w}"/>`;
+const Ci=(a,r,c,extra='')=>`<circle cx="${n1(a[0])}" cy="${n1(a[1])}" r="${n1(r)}" class="${c}" ${extra}/>`;
+const Pt=a=>n1(a[0])+' '+n1(a[1]);
+function props(sc,ex){
+ const fl=sc.floor,R=(x,y,w,h,c='prop')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="3" class="${c}"/>`;
+ let o=`<rect x="6" y="${fl}" width="308" height="5" rx="2.5" class="floor"/>`;
+ if(sc.prop==='chair')o+=R(128,104,7,95)+R(126,195,74,8)+R(130,200,6,fl-200)+R(190,200,6,fl-200);
+ if(sc.prop==='support')o+=R(213,106,8,76)+R(213,178,70,8)+R(215,182,6,fl-182)+R(275,182,6,fl-182);
+ if(sc.prop==='frontChair')o+=R(130,96,60,92,'prop2')+R(122,184,76,9)+R(126,190,7,fl-190)+R(187,190,7,fl-190);
+ if(sc.prop==='frontSupport')o+=R(236,110,8,72)+R(236,178,66,8)+R(238,182,6,fl-182)+R(294,182,6,fl-182);
+ if(sc.prop==='bed')o+=R(18,150,8,fl-150)+R(24,196,282,20,'prop2')+R(24,214,282,6)+R(28,218,8,fl-218)+R(296,218,8,fl-218)+`<ellipse cx="60" cy="191" rx="30" ry="9" class="prop"/>`;
+ if(ex.roll)o+=`<circle cx="224" cy="187" r="9" class="prop"/>`;
+ return o;
+}
+function figSVG(p,ex){
+ const sc=SC[ex.scene],k=skel(p,sc,ex.anchor||sc.anchor),fo=ex.focus||[];
+ const isF=key=>fo.some(x=>key.startsWith(x));
+ const cl=(key,s)=>isF(key)?'fo':(s==='F'&&!k.front?'far':'near');
+ const arm=s=>{
+  let o=Ln(k.sh[s],k.el[s],cl('a'+s+'1',s),9)+Ln(k.el[s],k.wr[s],cl('a'+s+'2',s),8);
+  const hA=k.hA[s],g=p.grip||0,c=cl('h'+s,s),palm=add(k.wr[s],vec(hA),4);
+  if(g<.97){const len=10*(1-g)+1,sp=24*(1-g);for(const d of[-sp,0,sp])o+=Ln(palm,add(palm,vec(hA+d),len),c,3.2);}
+  return o+Ci(palm,3.6+2.6*g,c);
+ };
+ const leg=s=>Ln(k.hip[s],k.kn[s],cl('l'+s+'1',s),10)+Ln(k.kn[s],k.an[s],cl('l'+s+'2',s),9)+Ln(k.an[s],k.toe[s],cl('f'+s,s),7);
+ const head=()=>{
+  const hf=isF('head');
+  let o=Ln(k.neck,k.neckTop,hf?'fo':'near',7)+Ci(k.headC,15,'head'+(hf?' fo':''),'stroke-width="4"');
+  if(!k.front)o+=Ci(add(add(k.headC,vec(k.hd-90),7),vec(k.hd),2),2.2,'dot');
+  else{
+   const e=add(k.headC,vec(k.hd),3),side=vec(k.hd-90);
+   o+=Ci(add(e,side,5.5),2,'dot')+Ci(add(e,side,-5.5),2,'dot');
+   const m=add(k.headC,vec(k.hd),-4),q=add(k.headC,vec(k.hd),-8);
+   o+=`<path class="mouth" d="M${Pt(add(m,side,-5))} Q${Pt(q)} ${Pt(add(m,side,5))}"/>`;
+  }
+  return o;
+ };
+ let o=props(sc,ex);
+ if(!k.front){
+  o+=arm('F')+leg('F')+Ln(k.hc,k.neck,isF('torso')?'fo':'near',13)+head()+leg('N')+arm('N');
+ } else {
+  o+=`<path class="tor ${isF('torso')?'fo':'near'}" stroke-width="8" stroke-linejoin="round" d="M${Pt(k.sh.F)} L${Pt(k.sh.N)} L${Pt(k.hip.N)} L${Pt(k.hip.F)} Z"/>`;
+  o+=leg('F')+leg('N');
+  if(isF('shrug'))o+=Ln(k.sh.F,k.sh.N,'fo',10);
+  o+=head()+arm('F')+arm('N');
+ }
+ return o;
+}
+
+/* ===== 3. STORE, SETTINGS, HISTORY ===== */
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem('ann_'+k);return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem('ann_'+k,v)}catch(e){}}};
+const jget=(k,d)=>{try{return JSON.parse(store.get(k,''))??d}catch(e){return d}};
+const CFG={
+ lang:store.get('lang','both'),
+ vLang:store.get('vlang',store.get('lang','both')==='en'?'en':'te'),
+ sound:store.get('sound','1')!=='0',
+ speed:parseFloat(store.get('speed','0.5'))||0.5,
+ rest:parseInt(store.get('rest','60'))||60,
+ planMin:parseInt(store.get('planMin','30'))||30
+};
+const saveCfg=k=>store.set({vLang:'vlang'}[k]||k,CFG[k]===true?'1':CFG[k]===false?'0':String(CFG[k]));
+let favs=new Set(jget('favs',[]));
+let HIST=jget('hist',[]);
+const dk=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const todayK=()=>dk(new Date());
+const repsOf=e=>Math.min(20,Math.max(1,parseInt(store.get('reps_'+e.id,e.target))||e.target));
+function logDone(e,reps,sec){HIST.push({d:todayK(),id:e.id,reps,sec:Math.round(sec),t:Date.now()});store.set('hist',JSON.stringify(HIST))}
+const histOn=k=>HIST.filter(h=>h.d===k);
+/* notes: one per exercise plus one about the app; {text, t} */
+const NOTES=jget('notes',{});
+function saveNote(key,text){if(text.trim())NOTES[key]={text:text.trim(),t:Date.now()};else delete NOTES[key];store.set('notes',JSON.stringify(NOTES))}
+const fmtWhen=t=>{const d=new Date(t);return `${dayLabel(dk(d))} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`};
+function notesBox(key){const n=NOTES[key];return `<div class="panel notes"><label for="note-${key}"><b>${TI(UI.notesT)}</b></label>
+ <p style="margin:0;color:var(--muted);font-size:15px">${T(UI.notesHint)}</p>
+ <textarea id="note-${key}" data-note="${key}">${n?n.text.replace(/</g,'&lt;'):''}</textarea>
+ <div class="row"><span class="when" id="nw-${key}" style="color:var(--muted);font-size:14px">${n?`${TS(UI.lastSaved)}: ${fmtWhen(n.t)}`:''}</span><button class="primary" data-savenote="${key}" style="min-height:48px;font-size:17px;padding:8px 20px">${TI(UI.save)}</button></div></div>`}
+const doneCountToday=id=>HIST.filter(h=>h.d===todayK()&&h.id===id).length;
+
+/* ===== 4. TEXT HELPERS ===== */
+const L=()=>CFG.lang;
+function T(o){
+ if(L()==='en')return `<span lang="en">${o.en}</span>`;
+ if(L()==='te')return `<span lang="te" class="te">${o.te}</span>`;
+ return `<span lang="te" class="te">${o.te}</span><span lang="en" class="en2">${o.en}</span>`;
+}
+function TI(o){
+ if(L()==='en')return `<span lang="en">${o.en}</span>`;
+ if(L()==='te')return `<span lang="te" class="te">${o.te}</span>`;
+ return `<span lang="te" class="te">${o.te}</span> <span lang="en" class="sub">${o.en}</span>`;
+}
+const TS=o=>L()==='en'?o.en:o.te; /* plain string for one language */
+const fmtMin=s=>Math.max(1,Math.round(s/60));
+const minTxt=s=>`${fmtMin(s)} ${TS(UI.min)}`;
+const ICON={
+ play:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>`,
+ pause:`<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1" fill="currentColor"/><rect x="14" y="4.5" width="4" height="15" rx="1" fill="currentColor"/></svg>`,
+ again:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+ left:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+ right:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+ menu:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+ clock:`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+ check:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+ sun:`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+ list:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="4.5" cy="6" r="1.6" fill="currentColor"/><circle cx="4.5" cy="12" r="1.6" fill="currentColor"/><circle cx="4.5" cy="18" r="1.6" fill="currentColor"/></svg>`,
+ week:`<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+ chart:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V12M12 20V5M19 20v-9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>`,
+ star:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`,
+ find:`<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+ warn:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5L22 20.5H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.3" fill="currentColor"/></svg>`,
+ son:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`,
+ soff:`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M16 9l5 6M21 9l-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+};
+function toast(o){const t=$('#toast');t.innerHTML=TI(o);t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,3200)}
+
+/* ===== 5. AUDIO =====
+   Clips: audio/<lang>-<key>.mp3, played through Web Audio. A Telugu phone voice is used instead when the phone has one,
+   unless recorded family voice clips are present (store flag 'ownVoice' from the build). */
+const OWN_VOICE=false;
+let voices=[];
+function loadVoices(){try{voices=speechSynthesis.getVoices()||[]}catch(e){}}
+if('speechSynthesis' in window){loadVoices();try{speechSynthesis.addEventListener('voiceschanged',loadVoices)}catch(e){}}
+const AU={ctx:null,cache:new Map(),src:null,el:null,busy:false,kind:null,q:[],seq:[],seqDone:null,token:0,tts:false};
+/* opened as a local file (file://): Chrome blocks fetch(), so play clips through <audio> elements instead */
+let USE_EL=location.protocol==='file:';
+function actx(){if(!AU.ctx){const C=window.AudioContext||window.webkitAudioContext;if(C)try{AU.ctx=new C()}catch(e){}}return AU.ctx}
+function wake(){const c=actx();if(c&&c.state!=='running')c.resume().catch(()=>{})}
+function phoneVoice(l){
+ if(OWN_VOICE||l!=='te'||!('speechSynthesis' in window))return null;
+ return voices.find(v=>(v.lang||'').toLowerCase().replace('_','-').startsWith('te'))||null;
+}
+function clip(l,key){
+ const k=l+'-'+key,c=actx();
+ if(!c)return Promise.reject(new Error('no audio'));
+ if(!AU.cache.has(k))AU.cache.set(k,fetch('audio/'+k+'.mp3').then(r=>{if(!r.ok)throw new Error(r.status);return r.arrayBuffer()})
+  .then(b=>new Promise((res,rej)=>c.decodeAudioData(b,res,rej))).catch(e=>{AU.cache.delete(k);throw e}));
+ return AU.cache.get(k);
+}
+function stopAudio(){
+ AU.token++;AU.q=[];AU.seq=[];AU.seqDone=null;AU.busy=false;AU.kind=null;
+ try{AU.src&&AU.src.stop()}catch(e){}AU.src=null;
+ if(AU.el){try{AU.el.onended=null;AU.el.pause()}catch(e){}AU.el=null}
+ try{speechSynthesis.cancel()}catch(e){}
+}
+function pauseAudio(){if(AU.tts){try{speechSynthesis.pause()}catch(e){}}else if(AU.el){AU.el.pause()}else if(AU.ctx&&AU.busy)AU.ctx.suspend().catch(()=>{})}
+function resumeAudio(){try{speechSynthesis.resume()}catch(e){}if(AU.el)AU.el.play().catch(()=>{});wake()}
+function audioFail(){const el=$('#voiceMsg');if(el){el.innerHTML=T(UI.noAudio);el.hidden=false}}
+function playEl(l,key,my,finish){
+ const a=new Audio('audio/'+l+'-'+key+'.mp3');AU.el=a;
+ a.onended=finish;a.onerror=()=>{if(my===AU.token){audioFail();finish()}};
+ a.play().catch(()=>{if(my===AU.token){audioFail();finish()}});
+}
+function startClip(key,kind){
+ const my=++AU.token,l=CFG.vLang,pv=phoneVoice(l);
+ AU.busy=true;AU.kind=kind;AU.tts=!!pv;
+ const finish=()=>{
+  if(my!==AU.token)return;
+  AU.busy=false;AU.src=null;
+  if(AU.seq.length){startClip(AU.seq.shift(),kind);return}
+  const cb=AU.seqDone;AU.seqDone=null;AU.kind=null;if(cb)cb();
+  const n=AU.q.shift();if(n&&!AU.busy)startClip(n,'q');
+ };
+ if(pv){
+  const parts=clipText(key,l).split(/(?<=[.!?:])\s+/).filter(Boolean);
+  parts.forEach((t,i)=>{const u=new SpeechSynthesisUtterance(t);u.voice=pv;u.lang=pv.lang;u.rate=.85;
+   if(i===parts.length-1){u.onend=finish;u.onerror=finish}speechSynthesis.speak(u)});
+  return;
+ }
+ if(USE_EL||!actx()){playEl(l,key,my,finish);return}
+ wake();
+ clip(l,key).then(buf=>{
+  if(my!==AU.token)return;
+  const c=actx(),s=c.createBufferSource();s.buffer=buf;s.connect(c.destination);s.onended=finish;AU.src=s;s.start();
+ }).catch(()=>{if(my!==AU.token)return;USE_EL=true;playEl(l,key,my,finish)});
+}
+/* a sequence interrupts everything; onDone runs when it ends (or right away when sound is off) */
+function saySeq(keys,onDone){
+ stopAudio();
+ if(!CFG.sound||!keys.length){onDone&&onDone();return}
+ AU.seq=keys.slice(1);AU.seqDone=onDone||null;startClip(keys[0],'seq');
+}
+/* short phrase: queued behind what is playing; a newer cue replaces an older queued cue; dropped during a sequence */
+function say(key){
+ if(!CFG.sound)return;
+ if(AU.busy){
+  if(AU.kind==='seq')return;
+  if(key.startsWith('cue-'))AU.q=AU.q.filter(k=>!k.startsWith('cue-'));
+  AU.q.push(key);if(AU.q.length>3)AU.q.shift();return;
+ }
+ startClip(key,'q');
+}
+function preload(e){
+ if(!CFG.sound||phoneVoice(CFG.vLang)||!e||USE_EL)return;
+ const keys=['intro-'+e.id,'why-'+e.id,'safetyRule','listenBody','breathRule','breatheOut','breatheIn','keepBreathing','done','timesGo','eachLeg','eachSide','restNow','nextUp',...new Set(e.frames.map(f=>'cue-'+f[2]))];
+ for(let i=1;i<=repsOf(e);i++)keys.push('n'+i);
+ keys.forEach(k=>clip(CFG.vLang,k).catch(()=>{}));
+}
+
+/* ===== 6. ESTIMATES & WEEK PLAN ===== */
+const INTRO_SEC=35;
+const cycleSec=e=>e.frames.reduce((s,f)=>s+(f[3]?f[1]:f[1]/CFG.speed),0);
+const estSec=e=>INTRO_SEC+repsOf(e)*cycleSec(e);
+function buildPlan(di){
+ const D=DAYS[di],budget=(D.light?Math.min(20,CFG.planMin):CFG.planMin)*60;
+ const tot=list=>list.reduce((s,it)=>s+estSec(BYID[it.id]),0)+CFG.rest*Math.max(0,list.length-1);
+ let list=[...D.warm.map(id=>({id,part:'warm'})),...D.main.map(id=>({id,part:'main'})),...D.cool.map(id=>({id,part:'cool'}))];
+ while(tot(list)>budget&&list.filter(i=>i.part==='main').length>2)list.splice(list.map(i=>i.part).lastIndexOf('main'),1);
+ const coolAt=()=>{const i=list.findIndex(x=>x.part==='cool');return i<0?list.length:i};
+ const tryAdd=it=>{const c=list.slice();c.splice(coolAt(),0,it);if(tot(c)<=budget){list=c;return true}return false};
+ if(list.filter(i=>i.part==='main').length===D.main.length){
+  for(const id of D.main)if(!tryAdd({id,part:'main',round:2}))break;
+  if(list.filter(i=>i.round===2).length===D.main.length&&!D.light)
+   for(const id of EXTRA)if(!list.some(x=>x.id===id))tryAdd({id,part:'extra'});
+ }
+ return {items:list,total:tot(list),light:!!D.light};
+}
+
+/* ===== 7. APP STATE ===== */
+const V={view:'today',lib:{main:'all',pos:'all'},cal:null,sel:null};
+let SESS=jget('sess',null);
+if(SESS&&SESS.d!==todayK())SESS=null;
+const saveSess=()=>store.set('sess',JSON.stringify(SESS));
+const A={whyFor:null,ex:null,seg:0,frac:0,playing:false,reps:0,last:0,raf:0,lastCue:null,demo:false,demoEnd:false,active:0,phase:'ex',restLeft:0,saidNext:false,finTimer:0};
+
+/* ===== 8. RENDER: TOP BAR & MENU ===== */
+function renderTop(){
+ document.documentElement.lang=L()==='en'?'en':'te';
+ $('#top').innerHTML=`<div class="topin">
+  <div class="brand"><button class="menuBtn" id="menuBtn" aria-label="Menu">${ICON.menu}</button><b>${TI(UI.title)}</b></div>
+  <div class="tctl">
+   <span class="grp"><span class="lbl">${TI(UI.textL)}</span><span class="seg" role="group" aria-label="Text language">
+    <button data-lang="te" aria-pressed="${L()==='te'}"><span class="te">తెలుగు</span></button><button data-lang="both" aria-pressed="${L()==='both'}"><span class="te">తె</span>+En</button><button data-lang="en" aria-pressed="${L()==='en'}">English</button></span></span>
+   <span class="grp"><span class="lbl">${TI(UI.voiceL)}</span><span class="seg" role="group" aria-label="Voice language">
+    <button data-vl="te" aria-pressed="${CFG.vLang==='te'}"><span class="te">తెలుగు</span></button><button data-vl="en" aria-pressed="${CFG.vLang==='en'}">English</button></span></span>
+   ${INSTALL_EVT?`<button class="sound" id="installBtn">${ICON.check}${TI(UI.installApp)}</button>`:''}
+   <button class="sound" id="soundBtn" aria-pressed="${CFG.sound}" aria-label="${CFG.sound?UI.soundOn.en:UI.soundOff.en}">${CFG.sound?ICON.son+TI(UI.soundOn):ICON.soff+TI(UI.soundOff)}</button>
+  </div></div>`;
+ requestAnimationFrame(()=>document.documentElement.style.setProperty('--topH',$('#top').offsetHeight+'px'));
+}
+function stIcon(state,n){
+ if(state==='ok')return `<span class="st ok">${ICON.check}</span>`;
+ if(state==='now')return `<span class="st now">▶</span>`;
+ return `<span class="st">${n??''}</span>`;
+}
+function renderSide(){
+ const plan=buildPlan(new Date().getDay());
+ const todayDone=histOn(todayK()).length;
+ const nav=[['today',UI.navToday,ICON.sun,todayDone?`${todayDone}`:''],['library',UI.navLib,ICON.list,''],['plan',UI.navPlan,ICON.week,''],['progress',UI.navProg,ICON.chart,'']];
+ let h=`<label class="search">${ICON.find}<input id="sideq" type="search" placeholder="${TS(UI.search)}" aria-label="${UI.search.en}" value="${(V.q||'').replace(/"/g,'&quot;')}"></label><nav class="nav">${nav.map(([k,o,ic,b])=>`<button data-nav="${k}" ${V.view===k?'aria-current="page"':''}>${ic}${TI(o)}${b?`<span class="badge">${b} ✓</span>`:''}</button>`).join('')}</nav>`;
+ if(SESS){
+  const n=SESS.items.length,done=SESS.items.filter(i=>i.done).length;
+  h+=`<div class="shead"><span>${TI(UI.session)}</span><span>${done} / ${n}</span></div><div class="sprog"><i style="width:${(done/n*100).toFixed(0)}%"></i></div>`;
+  h+=SESS.items.map((it,i)=>{const e=BYID[it.id],cur=V.view==='player'&&A.ex&&SESS.idx===i;
+   return `<button class="sitem" data-sidx="${i}" ${cur?'aria-current="true"':''}>${stIcon(it.done?'ok':cur?'now':'',i+1)}<span class="nmS">${TI(e.name)}${it.round===2?`<span class="rtag">${TS(UI.round2)}</span>`:''}</span></button>`}).join('');
+ }
+ for(const g of ['chair','stand','bed']){
+  h+=`<div class="shead"><span>${TI(UI[g])}</span></div>`;
+  h+=EX.filter(e=>e.pos===g).map(e=>{const c=doneCountToday(e.id),cur=V.view==='player'&&A.ex&&A.ex.id===e.id&&!SESS?.items[SESS.idx];
+   return `<button class="sitem" data-id="${e.id}" ${V.view==='player'&&A.ex&&A.ex.id===e.id?'aria-current="true"':''}>${stIcon(c?'ok':'')}<span class="nmS">${TI(e.name)}</span>${c>1?`<span class="badge">×${c}</span>`:''}</button>`}).join('');
+ }
+ $('#side').innerHTML=h;
+}
+function closeMenu(){$('#side').classList.remove('open');$('#scrim').classList.remove('open')}
+
+/* ===== 9. VIEWS ===== */
+const restSeg=()=>[30,60,90,120,180].map(s=>`<button data-rest="${s}" aria-pressed="${CFG.rest===s}">${s<120?s+' '+TS(UI.sec):(s/60)+' '+TS(UI.min)}</button>`).join('');
+const safetyBox=(extra)=>`<div class="safety"><h3>${ICON.warn}${TI(UI.safetyT)}</h3><p>${T(UI.safety)}</p>${extra?`<p><b>${TI(UI.careful)}:</b> ${T(extra)}</p>`:''}</div>`;
+const timeChip=s=>`<span class="time">${ICON.clock}${TS(UI.about)} ${minTxt(s)}</span>`;
+function planList(plan,withState){
+ let lastPart=null;
+ return `<ul class="plist">${plan.items.map((it,i)=>{
+  const e=BYID[it.id],partLbl=it.part!==lastPart?`<div class="part">${TI(UI[it.part==='main'?'mainP':it.part])}</div>`:'';lastPart=it.part;
+  const st=withState&&SESS?(SESS.items[i]?.done?'ok':''):(doneCountToday(it.id)&&withState?'ok':'');
+  return `<li>${stIcon(st,i+1)}<div>${partLbl}<button class="nmB" data-id="${it.id}">${TI(e.name)}</button>${it.round===2?`<span class="rtag">${TS(UI.round2)}</span>`:''}
+   <div class="meta">${repsOf(e)} ${TS(UI.times)}${e.per?' · '+TS(e.per==='leg'?UI.eachLegL:UI.eachSideL):''}</div></div><span class="time">${minTxt(estSec(e))}</span></li>`}).join('')}</ul>
+  <div class="tot"><span>${TI(UI.total)}</span><b>${minTxt(plan.total)}</b></div>`;
+}
+function viewToday(){
+ const tdi=new Date().getDay(),di=SESS?SESS.day??tdi:tdi,D=DAYS[di],plan=buildPlan(di);
+ const dn=new Date();
+ const dateTxt=L()==='en'?`${WDL.en[tdi]}, ${MON.en[dn.getMonth()]} ${dn.getDate()}`:`${WDL.te[tdi]}, ${dn.getDate()} ${MON.te[dn.getMonth()]}`;
+ const done=histOn(todayK()).length;
+ return `<div class="phead2"><div><p class="lead">${dateTxt}${di!==tdi?` · ${TS(WDL)[di]}`:''}</p><h1>${TI(UI.todayFocus)}: ${TI(D.focus)}</h1>
+   ${done?`<p class="done1" style="margin:4px 0 0">${TI(UI.doneToday)}: ${done}</p>`:''}</div>
+  <button class="primary" id="startSess">${ICON.play}${TI(SESS?UI.contSession:UI.startSession)}</button></div>
+ ${safetyBox()}
+ <div class="listen"><h3>${TI(UI.listenT)}</h3><p>${T(SAY.listenBody)}</p><p style="margin-top:6px">${T(SAY.breathRule)}</p></div>
+ <div class="card stack">
+  <div class="row"><span class="flabel">${TI(UI.howLong)}</span><span class="seg" role="group" aria-label="Minutes">${[20,30,45,60].map(m=>`<button data-plan="${m}" aria-pressed="${CFG.planMin===m}">${m} ${TS(UI.min)}</button>`).join('')}</span>
+   ${plan.light?`<span class="pill easy">${TS(UI.lightDay)} · 20 ${TS(UI.min)}</span>`:''}</div>
+  <div class="row"><span class="flabel">${TI(UI.restBetween)}</span><span class="seg" role="group" aria-label="Rest">${restSeg()}</span></div>
+  ${planList(SESS?{items:SESS.items,total:plan.total}:plan,true)}
+ </div>`;
+}
+function matchQ(e,q){
+ if(!q)return true;q=q.toLowerCase().trim();
+ const hay=[e.name.en,e.name.te,e.why.en,e.why.te,...e.steps.en,...e.steps.te,UI[e.pos].en,UI[e.pos].te,...e.areas.flatMap(a=>[UI[a].en,UI[a].te])].join(' ').toLowerCase();
+ return q.split(/\s+/).every(w=>hay.includes(w));
+}
+function libVisible(){
+ const f=V.lib;
+ return EX.filter(e=>matchQ(e,V.q)&&(f.main==='all'||(f.main==='knee'&&e.areas.includes('knees'))||(f.main==='joint'&&e.level==='easy')||(f.main==='fav'&&favs.has(e.id)))&&(f.pos==='all'||e.pos===f.pos));
+}
+function viewLibrary(){
+ const chips=(g,keys)=>keys.map(k=>`<button class="chip" data-lf="${g}" data-v="${k}" aria-pressed="${V.lib[g]===k}">${TI(UI[k])}</button>`).join('');
+ const list=libVisible();
+ return `<div><h1>${TI(UI.navLib)}</h1><p class="lead">${T(UI.libSub)}</p></div>
+ <label class="search">${ICON.find}<input id="libq" type="search" placeholder="${TS(UI.searchPh)}" aria-label="${UI.search.en}" value="${(V.q||'').replace(/"/g,'&quot;')}"></label>
+ <div class="row" role="group" aria-label="Show">${chips('main',['all','knee','joint','fav'])}</div>
+ <div class="row" role="group" aria-label="Where"><span class="flabel">${TI(UI.where)}</span>${chips('pos',['all','chair','stand','bed'])}</div>
+ <div class="grid" id="libGrid">${list.length?list.map(e=>{const c=doneCountToday(e.id);return `<article class="xcard"><button class="open" data-id="${e.id}">
+  <svg class="thumb fig" viewBox="0 0 320 266" aria-hidden="true">${figSVG(framePose(e,e.thumb??1),e)}</svg>
+  <div class="nm">${T(e.name)}</div>
+  <div class="meta"><span class="pill ${e.level}">${TI(UI[e.level])}</span>${timeChip(estSec(e))}${c?`<span class="done1">✓ ${c}</span>`:''}</div>
+ </button><button class="star" data-fav="${e.id}" aria-pressed="${favs.has(e.id)}" aria-label="Add ${e.name.en} to My list">${ICON.star}</button></article>`}).join(''):`<p class="empty">${T(V.lib.main==='fav'?UI.emptyFav:UI.empty)}</p>`}</div>`;
+}
+function viewPlan(){
+ const td=new Date().getDay(),order=[1,2,3,4,5,6,0];
+ return `<div><h1>${TI(UI.navPlan)}</h1><p class="lead">${T(UI.planSub)}</p></div>
+ <div class="row"><span class="flabel">${TI(UI.howLong)}</span><span class="seg" role="group" aria-label="Minutes">${[20,30,45,60].map(m=>`<button data-plan="${m}" aria-pressed="${CFG.planMin===m}">${m} ${TS(UI.min)}</button>`).join('')}</span></div>
+ <div class="safety"><h3>${ICON.warn}${TI(UI.safetyT)}</h3><p>${T(UI.planNote)}</p></div>
+ <div class="week">${order.map(di=>{const p=buildPlan(di),D=DAYS[di];return `<section class="day ${di===td?'today':''}">
+  <h3><span>${TS(WDL)[di]}</span><span class="daytot">${minTxt(p.total)}</span></h3>
+  <div class="focus">${TI(D.focus)}${p.light?` · ${TS(UI.lightDay)}`:''}</div>
+  <ol>${p.items.map(it=>`<li><button class="linkB" data-id="${it.id}">${TS(BYID[it.id].name)}</button>${it.round===2?`<span class="rtag">${TS(UI.round2)}</span>`:''} <span class="m">· ${minTxt(estSec(BYID[it.id]))}</span></li>`).join('')}</ol>
+  <button class="ghost" data-startday="${di}">${ICON.play}${TI(UI.startDay)}</button>
+ </section>`}).join('')}</div>`;
+}
+function weekStats(){
+ const now=new Date(),start=new Date(now);start.setDate(now.getDate()-((now.getDay()+6)%7));start.setHours(0,0,0,0);
+ const wk=HIST.filter(h=>h.t>=start.getTime());
+ const days=new Set(wk.map(h=>h.d)).size,mins=Math.round(wk.reduce((s,h)=>s+h.sec,0)/60);
+ let streak=0;const d=new Date();if(!histOn(dk(d)).length)d.setDate(d.getDate()-1);
+ while(histOn(dk(d)).length){streak++;d.setDate(d.getDate()-1)}
+ return {days,n:wk.length,mins,streak,wk};
+}
+function dayLabel(k){const [y,m,d]=k.split('-').map(Number);const dt=new Date(y,m-1,d);return L()==='en'?`${WDL.en[dt.getDay()]}, ${MON.en[m-1]} ${d}`:`${WDL.te[dt.getDay()]}, ${d} ${MON.te[m-1]}`}
+function summaryText(){
+ const l=L()==='en'?'en':'te',s=weekStats();
+ const lines=[UI.title[l]];
+ lines.push(l==='en'?`This week: ${s.days} of 7 days, ${s.n} exercises, ${s.mins} minutes.`:`ఈ వారం: 7 రోజుల్లో ${s.days} రోజులు, ${s.n} వ్యాయామాలు, ${s.mins} నిమిషాలు.`);
+ const byDay={};s.wk.forEach(h=>(byDay[h.d]=byDay[h.d]||[]).push(h));
+ Object.keys(byDay).sort().forEach(k=>{lines.push('');lines.push(dayLabel(k)+':');byDay[k].forEach(h=>lines.push(`• ${BYID[h.id]?.name[l]||h.id} — ${h.reps} ${UI.times[l]}`))});
+ const ks=Object.keys(NOTES);
+ if(ks.length){lines.push('');lines.push(UI.notesT[l]+':');ks.forEach(k=>lines.push(`• ${k==='app'?UI.appFb[l]:BYID[k]?.name[l]||k}: ${NOTES[k].text}`))}
+ return lines.join('\n');
+}
+function notesList(){
+ const ks=Object.keys(NOTES).sort((a,b)=>NOTES[b].t-NOTES[a].t);
+ if(!ks.length)return `<p style="margin:0;color:var(--muted)">${T(UI.noNotes)}</p>`;
+ return `<ul class="nlist">${ks.map(k=>`<li><b>${k==='app'?TI(UI.appFb):`<button class="linkB" data-id="${k}">${TS(BYID[k]?.name||{en:k,te:k})}</button>`}</b> <span class="when">· ${fmtWhen(NOTES[k].t)}</span><p>${NOTES[k].text.replace(/</g,'&lt;')}</p></li>`).join('')}</ul>`;
+}
+function viewProgress(){
+ const s=weekStats(),now=new Date();
+ if(!V.cal)V.cal={y:now.getFullYear(),m:now.getMonth()};
+ if(!V.sel)V.sel=todayK();
+ const {y,m}=V.cal,first=new Date(y,m,1),nd=new Date(y,m+1,0).getDate(),lead=first.getDay();
+ let cells=WD[L()==='en'?'en':'te'].map(w=>`<div class="wd">${w}</div>`).join('');
+ for(let i=0;i<lead;i++)cells+=`<button class="blank" tabindex="-1" aria-hidden="true"></button>`;
+ for(let d=1;d<=nd;d++){const k=dk(new Date(y,m,d)),n=histOn(k).length,lv=n===0?'':n<3?'l1':n<6?'l2':'l3';
+  cells+=`<button data-day="${k}" class="${lv} ${k===todayK()?'today':''} ${k>todayK()?'future':''}" aria-pressed="${V.sel===k}" aria-label="${k}: ${n}"><span class="dn">${d}</span>${n?`<span class="cn">${n}</span>`:''}</button>`}
+ const sel=histOn(V.sel);
+ const agg={};sel.forEach(h=>{agg[h.id]=agg[h.id]||{reps:0,sets:0,sec:0};agg[h.id].reps+=h.reps;agg[h.id].sets++;agg[h.id].sec+=h.sec});
+ return `<div><h1>${TI(UI.navProg)}</h1><p class="lead">${T(UI.progNote)}</p></div>
+ <div><h2 style="margin:0 0 10px;font-size:20px">${TI(UI.thisWeek)}</h2><div class="stats">
+  <div class="stat"><div class="k">${TI(UI.activeDays)}</div><div class="v">${s.days}<small> / 7</small></div></div>
+  <div class="stat"><div class="k">${TI(UI.exDone)}</div><div class="v">${s.n}</div></div>
+  <div class="stat"><div class="k">${TI(UI.minutes)}</div><div class="v">${s.mins}</div></div>
+  <div class="stat"><div class="k">${TI(UI.streak)}</div><div class="v">${s.streak}</div></div></div></div>
+ <div class="card"><div class="calhead"><button class="ghost" id="calPrev" aria-label="Previous month">${ICON.left}</button><h3>${TS(MON)[m]} ${y}</h3><button class="ghost" id="calNext" aria-label="Next month">${ICON.right}</button></div>
+  <div class="cal">${cells}</div></div>
+ <div class="card"><h3 style="margin:0 0 10px;font-size:20px">${dayLabel(V.sel)}</h3>
+  ${sel.length?`<ul class="dlist">${Object.entries(agg).map(([id,a])=>`<li><span>${TI(BYID[id]?.name||{en:id,te:id})}</span><span class="r">${a.reps} ${TS(UI.times)}${a.sets>1?` (×${a.sets})`:''} · ${minTxt(a.sec)}</span></li>`).join('')}</ul>`:`<p style="margin:0;color:var(--muted)">${T(UI.noneDay)}</p>`}</div>
+ <div class="card"><h3 style="margin:0 0 10px;font-size:20px">${TI(UI.allNotes)}</h3>${notesList()}</div>
+ <div><h3 style="margin:0 0 8px;font-size:20px">${TI(UI.appFb)}</h3>${notesBox('app')}</div>
+ <div class="row"><button class="primary" id="copyBtn">${TI(UI.copy)}</button></div>
+ <div id="copyFallback" hidden><p class="note">${T(UI.copyFail)}</p><textarea class="copybox" id="copyBox" readonly></textarea></div>`;
+}
+
+/* ===== 10. PLAYER ===== */
+function framePose(ex,i){return Object.assign({},SC[ex.scene].base,ex.base||{},ex.frames[i][0])}
+function lerpPose(a,b,t){const o={};for(const key of new Set([...Object.keys(a),...Object.keys(b)])){const va=a[key],vb=b[key];o[key]=(typeof va==='number'&&typeof vb==='number')?va+(vb-va)*t:(va??vb)}return o}
+const ease=t=>.5-.5*Math.cos(Math.PI*t);
+const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+const segDur=fr=>Math.max(.05,fr[3]?fr[1]:fr[1]/CFG.speed);
+const speedWord=()=>CFG.speed<.4?UI.vslow:CFG.speed<.8?UI.slow:UI.normal;
+function introKeys(e){const k=[];if(store.get('lb_day','')!==todayK()){k.push('safetyRule','listenBody');store.set('lb_day',todayK())}if(A.whyFor!==e.id)k.push('why-'+e.id);A.whyFor=null;k.push('intro-'+e.id,'breathRule');if(e.per)k.push(e.per==='leg'?'eachLeg':'eachSide');k.push('n'+repsOf(e),'timesGo');return k}
+/* with many repetitions, speak the step cues only on the first two, every fifth and the last; always speak the count */
+function cueThisRep(){const n=repsOf(A.ex),r=A.reps;return n<=5||r<2||(r+1)%5===0||r===n-1}
+function renderCue(){
+ if(A.phase!=='ex')return;
+ const fr=A.ex.frames[A.seg],c=CUE[fr[2]]||CUE.rest;
+ let num='';
+ if(fr[3]&&fr[1]>=1.5&&A.playing)num=` <span class="num">${Math.max(1,Math.ceil(fr[1]*(1-A.frac)))}</span>`;
+ const html=L()==='en'?`<span>${c.en}${num}</span>`:L()==='te'?`<span class="te">${c.te}${num}</span>`:`<span class="te">${c.te}${num}</span><span class="en2">${c.en}</span>`;
+ const el=$('#cue');if(el&&el._h!==html){el.innerHTML=html;el._h=html}
+ const b=BREATH[fr[2]],bl=$('#breath');
+ if(bl){const bh=b?TI(SAY[BKEY[b]]):'';if(bl._h!==bh){bl.innerHTML=bh;bl._h=bh}}
+ const d=$('#demoTag');if(d)d.hidden=!A.demo;
+}
+function onSeg(){
+ const c=A.ex.frames[A.seg][2];
+ if(A.playing&&!A.demo&&c!==A.lastCue&&cueThisRep()){say('cue-'+c);if(A.reps<2&&BREATH[c])say(BKEY[BREATH[c]])}
+ A.lastCue=c;
+}
+function setPlayBtn(){
+ const b=$('#play');if(!b)return;
+ const done=A.reps>=repsOf(A.ex);
+ b.innerHTML=A.playing?ICON.pause+TI(UI.pause):done?ICON.again+TI(UI.again):ICON.play+TI(UI.play);
+ $('#reps').textContent=A.demo?0:Math.min(A.reps,repsOf(A.ex));
+ $('#repsOf').textContent=repsOf(A.ex);
+}
+function drawFig(){
+ const svg=$('#fig');if(!svg)return;
+ if(A.phase==='rest'){const nx=BYID[SESS.items[SESS.idx+1]?.id];if(nx&&svg._rest!==nx.id){svg.innerHTML=figSVG(framePose(nx,nx.thumb??1),nx);svg._rest=nx.id}return}
+ svg._rest=null;
+ const n=A.ex.frames.length;
+ svg.innerHTML=figSVG(lerpPose(framePose(A.ex,A.seg),framePose(A.ex,(A.seg+1)%n),ease(A.frac)),A.ex);
+ renderCue();
+}
+function startIntro(){
+ A.demo=CFG.sound;A.demoEnd=false;A.reps=0;A.seg=0;A.frac=0;A.active=0;A.playing=true;A.lastCue=A.ex.frames[0][2];
+ saySeq(introKeys(A.ex),()=>{A.demoEnd=true});
+ setPlayBtn();
+}
+function finishExercise(){
+ A.playing=false;A.frac=0;
+ logDone(A.ex,repsOf(A.ex),A.active);
+ say('done');
+ if(SESS&&SESS.items[SESS.idx]?.id===A.ex.id){SESS.items[SESS.idx].done=true;saveSess()}
+ setPlayBtn();renderSide();
+ if(SESS&&SESS.items[SESS.idx]?.id===A.ex.id){
+  clearTimeout(A.finTimer);
+  A.finTimer=setTimeout(()=>{if(V.view!=='player')return;
+   const nextIdx=SESS.items.findIndex((it,i)=>i>SESS.idx&&!it.done);
+   if(nextIdx<0){A.phase='sdone';renderOverlay();say('sessionDone');return}
+   SESS.idx=nextIdx-1;A.phase='rest';A.restLeft=CFG.rest;A.saidNext=false;say('restNow');renderOverlay();drawFig();
+  },2600);
+ }
+}
+function renderOverlay(){
+ const o=$('#over');if(!o)return;
+ if(A.phase==='rest'){const nx=BYID[SESS.items[SESS.idx+1].id];
+  o.hidden=false;o.innerHTML=`<h3>${TI(UI.restT)}</h3><div class="big" id="restNum">${Math.ceil(A.restLeft)}</div>
+   <div class="nx">${TS(UI.nextL)}: <b>${TS(nx.name)}</b><br>${TS(nx.why)}</div>
+   <div class="row" style="justify-content:center"><button class="primary" id="skipRest">${ICON.play}${TI(UI.skipRest)}</button><button class="ghost" id="addRest">${TI(UI.add30)}</button></div>`;
+ } else if(A.phase==='sdone'){
+  o.hidden=false;o.innerHTML=`<h3>${T(UI.sessDone)}</h3><button class="primary" data-nav="progress">${ICON.chart}${TI(UI.navProg)}</button>`;
+ } else o.hidden=true;
+}
+function tick(now){
+ const dt=Math.min(.1,(now-(A.last||now))/1000);A.last=now;
+ if(V.view!=='player')return;
+ if(A.phase==='rest'){
+  A.restLeft-=dt;
+  const el=$('#restNum');if(el)el.textContent=Math.max(0,Math.ceil(A.restLeft));
+  if(!A.saidNext&&A.restLeft<=Math.min(14,CFG.rest-4)){A.saidNext=true;const nid=SESS.items[SESS.idx+1].id;say('nextUp');say('why-'+nid);A.whyFor=nid;preload(BYID[nid])}
+  if(A.restLeft<=0)goSession(SESS.idx+1,true);
+ } else if(A.playing&&A.phase==='ex'){
+  if(!A.demo)A.active+=dt;
+  A.frac+=dt/segDur(A.ex.frames[A.seg]);
+  while(A.frac>=1){
+   A.frac-=1;A.seg++;
+   if(A.seg>=A.ex.frames.length){
+    A.seg=0;
+    if(A.demo){if(A.demoEnd){A.demo=false;A.demoEnd=false;A.lastCue=null}}
+    else{A.reps++;say('n'+Math.min(A.reps,20));if(A.reps>=repsOf(A.ex)){finishExercise();break}}
+    setPlayBtn();
+   }
+   onSeg();
+  }
+ }
+ drawFig();
+ A.raf=requestAnimationFrame(tick);
+}
+function viewPlayer(){
+ const e=A.ex,st=e.steps,inS=SESS&&SESS.items[SESS.idx]?.id===e.id;
+ const steps=st.en.map((s,i)=>`<li><div>${T({en:s,te:st.te[i]})}</div></li>`).join('');
+ const areas=e.areas.map(a=>TI(UI[a])).join(' · ');
+ return `<div class="pbar">
+   ${inS?`<span class="stag">${TS(UI.session)} · ${SESS.idx+1} / ${SESS.items.length}</span>`:''}
+   <button class="primary" id="play"></button>
+   <button class="ghost" id="restart">${ICON.again}${TI(UI.restart)}</button>
+   <div class="counter"><span>${TI(UI.count)}</span><b id="reps">0</b><span>/ <span id="repsOf"></span></span></div>
+   <span class="sp"></span>
+   <div class="dnav"><button class="ghost" id="dPrev" aria-label="Previous exercise">${ICON.left}${TI(UI.prev)}</button><button class="ghost" id="dNext" aria-label="Next exercise">${TI(UI.next)}${ICON.right}</button></div>
+ </div>
+ <div class="phead"><div><h2>${T(e.name)}</h2>
+  <div class="meta" style="margin-top:6px"><span class="pill ${e.level}">${TI(UI[e.level])}</span><span>${TI(UI[e.pos])}</span><span>·</span><span>${areas}</span></div>
+  <p class="purpose"><b>${TI(UI.whatDoes)}:</b> ${T(e.why)}</p></div>
+  <button class="star" data-fav="${e.id}" aria-pressed="${favs.has(e.id)}" aria-label="Add to My list">${ICON.star}</button></div>
+ <div class="dgrid">
+  <section class="stagecol">
+   <div class="stage">
+    <span class="demo" id="demoTag" hidden>${TI(UI.watch)}</span>
+    <div class="cue" id="cue" aria-live="polite"></div>
+    <div class="breath" id="breath"></div>
+    <svg id="fig" class="fig" viewBox="0 0 320 266" role="img" aria-label="Moving figure showing ${e.name.en}"></svg>
+    <div class="over" id="over" hidden></div>
+   </div>
+   <div class="panel">
+    <div class="row" style="justify-content:space-between">
+     <label>${TI(UI.repsL)}${e.per?` <span class="sub">(${TS(e.per==='leg'?UI.eachLegL:UI.eachSideL)})</span>`:''}</label>
+     <span class="stepper"><button id="repMinus" aria-label="Fewer">−</button><output id="repVal">${repsOf(e)}</output><button id="repPlus" aria-label="More">+</button></span>
+    </div>
+    <div id="estLine">${timeChip(estSec(e))}</div>
+   </div>
+   <div class="panel">
+    <label for="spd">${TI(UI.speed)}: <b id="spdLbl"></b></label>
+    <input type="range" id="spd" min="0.25" max="1.25" step="0.05" value="${CFG.speed}">
+    <div class="ticks"><span>${TI(UI.vslow)}</span><span>${TI(UI.normal)}</span></div>
+   </div>
+   <div class="panel">
+    <label>${TI(UI.restBetween)}</label>
+    <span class="seg" role="group" aria-label="Rest">${restSeg()}</span>
+   </div>
+   <div class="row"><button class="ghost" id="hearBtn" ${CFG.sound?'':'disabled'}>${ICON.son}${TI(UI.hear)}</button></div>
+   <p class="note" id="voiceMsg" hidden></p>
+  </section>
+  <section class="textcol">
+   ${safetyBox(e.tip)}
+   <h3>${T(UI.how)}</h3><ol class="steps">${steps}</ol>
+   <h3>${T(UI.breathing)}</h3>${breathText(e)}
+   <div class="listen" style="margin-top:20px"><h3>${TI(UI.listenT)}</h3><p>${T(SAY.listenBody)}</p></div>
+   <div style="margin-top:20px">${notesBox(e.id)}</div>
+  </section>
+ </div>`;
+}
+function breathText(e){
+ const cues=[...new Set(e.frames.map(f=>f[2]))],by=k=>cues.filter(c=>BREATH[c]===k).map(c=>TS(CUE[c])).join(', ');
+ const o=by('out'),i=by('in');
+ const line=(k,list)=>list?`<li><div><b>${TS(SAY[BKEY[k]]).replace('.','')}</b> — ${list}</div></li>`:'';
+ return `<ul class="blist">${line('out',o)}${line('in',i)}</ul><p>${T(SAY.breathRule)}</p>`;
+}
+function updateSpeedLbl(){const l=$('#spdLbl');if(l)l.innerHTML=`${TI(speedWord())} <span class="sub">(${CFG.speed.toFixed(2)}×)</span>`}
+function refreshEst(){const el=$('#estLine');if(el&&A.ex)el.innerHTML=timeChip(estSec(A.ex))}
+function openPlayer(id,auto=true){
+ const e=BYID[id];if(!e)return;
+ stopAudio();wake();preload(e);clearTimeout(A.finTimer);
+ Object.assign(A,{ex:e,seg:0,frac:0,reps:0,playing:false,lastCue:null,last:0,demo:false,demoEnd:false,active:0,phase:'ex'});
+ V.view='player';render();
+ window.scrollTo(0,0);
+ if(auto&&!reduce)startIntro();
+ setPlayBtn();
+ cancelAnimationFrame(A.raf);A.raf=requestAnimationFrame(tick);
+}
+function goSession(idx,auto){
+ if(!SESS)return;
+ if(idx>=SESS.items.length){A.phase='sdone';renderOverlay();return}
+ SESS.idx=idx;saveSess();openPlayer(SESS.items[idx].id,auto);
+}
+function startSession(di=new Date().getDay()){
+ if(!SESS||(SESS.day??new Date().getDay())!==di){const p=buildPlan(di);SESS={d:todayK(),day:di,items:p.items.map(it=>({...it,done:false})),idx:0};saveSess()}
+ const i=SESS.items.findIndex(it=>!it.done);
+ goSession(i<0?0:i,true);
+}
+
+/* ===== 11. ROUTER ===== */
+function render(){
+ renderTop();
+ const m=$('#main');
+ if(V.view!=='player'){cancelAnimationFrame(A.raf);stopAudio();clearTimeout(A.finTimer)}
+ m.innerHTML=V.view==='today'?viewToday():V.view==='library'?viewLibrary():V.view==='plan'?viewPlan():V.view==='progress'?viewProgress():viewPlayer();
+ if(V.view==='player'){updateSpeedLbl();setPlayBtn();renderOverlay();drawFig()}
+ renderSide();
+}
+function go(view){V.view=view;closeMenu();render();window.scrollTo(0,0)}
+
+/* ===== 12. EVENTS ===== */
+/* installable version: offer the browser's install prompt when available */
+let INSTALL_EVT=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();INSTALL_EVT=e;renderTop()});
+window.addEventListener('appinstalled',()=>{INSTALL_EVT=null;renderTop()});
+document.addEventListener('click',ev=>{
+ if(ev.target.id==='scrim'){closeMenu();return}
+ const t=ev.target.closest('button');if(!t)return;
+ wake();
+ if(t.id==='installBtn'&&INSTALL_EVT){INSTALL_EVT.prompt();INSTALL_EVT.userChoice.finally(()=>{INSTALL_EVT=null;renderTop()});return}
+ if(t.id==='menuBtn'){$('#side').classList.add('open');$('#scrim').classList.add('open');return}
+ if(t.dataset.lang){CFG.lang=t.dataset.lang;saveCfg('lang');render();return}
+ if(t.dataset.vl){CFG.vLang=t.dataset.vl;saveCfg('vLang');const wasDemo=A.demo;stopAudio();if(wasDemo)A.demoEnd=true;renderTop();if(A.ex)preload(A.ex);return}
+ if(t.id==='soundBtn'){CFG.sound=!CFG.sound;saveCfg('sound');if(!CFG.sound){stopAudio();if(A.demo)A.demoEnd=true}else if(A.ex)preload(A.ex);renderTop();const h=$('#hearBtn');if(h)h.disabled=!CFG.sound;return}
+ if(t.dataset.nav){go(t.dataset.nav);return}
+ if(t.dataset.sidx!=null){closeMenu();goSession(+t.dataset.sidx,true);return}
+ if(t.dataset.fav){const id=t.dataset.fav;favs.has(id)?favs.delete(id):favs.add(id);store.set('favs',JSON.stringify([...favs]));document.querySelectorAll(`[data-fav="${id}"]`).forEach(b=>b.setAttribute('aria-pressed',favs.has(id)));if(V.view==='library'&&V.lib.main==='fav')render();return}
+ if(t.dataset.id){closeMenu();if(SESS){const i=SESS.items.findIndex((it,j)=>it.id===t.dataset.id&&!it.done);if(i>=0&&V.view==='today'){goSession(i,true);return}}openPlayer(t.dataset.id,true);return}
+ if(t.dataset.lf){V.lib[t.dataset.lf]=t.dataset.v;render();return}
+ if(t.dataset.plan){CFG.planMin=+t.dataset.plan;saveCfg('planMin');if(SESS&&!SESS.items.some(i=>i.done)){SESS=null;store.set('sess','null')}render();return}
+ if(t.dataset.rest){CFG.rest=+t.dataset.rest;saveCfg('rest');if(V.view==='player'){document.querySelectorAll('[data-rest]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.rest===CFG.rest));if(A.phase==='rest')A.restLeft=Math.min(A.restLeft,CFG.rest)}else render();return}
+ if(t.dataset.savenote){const k=t.dataset.savenote,ta=document.querySelector(`[data-note="${k}"]`);saveNote(k,ta.value);const w=$('#nw-'+k);if(w)w.textContent=NOTES[k]?`${TS(UI.lastSaved)}: ${fmtWhen(NOTES[k].t)}`:'';toast(UI.saved);if(V.view==='progress'){const c=document.querySelector('.nlist')?.parentElement;if(c)c.innerHTML=`<h3 style="margin:0 0 10px;font-size:20px">${TI(UI.allNotes)}</h3>${notesList()}`}return}
+ if(t.id==='startSess'){startSession(SESS?.day??new Date().getDay());return}
+ if(t.dataset.startday!=null){startSession(+t.dataset.startday);return}
+ if(t.dataset.day){V.sel=t.dataset.day;render();return}
+ if(t.id==='calPrev'||t.id==='calNext'){const c=V.cal;const d=new Date(c.y,c.m+(t.id==='calNext'?1:-1),1);V.cal={y:d.getFullYear(),m:d.getMonth()};render();return}
+ if(t.id==='copyBtn'){
+  const txt=summaryText(),fb=()=>{$('#copyFallback').hidden=false;const b=$('#copyBox');b.value=txt;b.focus();b.select()};
+  try{navigator.clipboard.writeText(txt).then(()=>toast(UI.copied),fb)}catch(e){fb()}
+  return}
+ /* player */
+ if(t.id==='dPrev'||t.id==='dNext'){
+  const dir=t.id==='dNext'?1:-1;
+  if(SESS&&SESS.items[SESS.idx]?.id===A.ex.id){const j=SESS.idx+dir;if(j>=0&&j<SESS.items.length){goSession(j,true);return}}
+  const i=EX.findIndex(e=>e.id===A.ex.id);openPlayer(EX[(i+dir+EX.length)%EX.length].id,true);return}
+ if(t.id==='play'){
+  if(A.phase!=='ex')return;
+  if(A.playing){A.playing=false;pauseAudio()}
+  else if(A.reps>=repsOf(A.ex)||(A.reps===0&&A.seg===0&&A.frac===0&&!A.demo)){startIntro()}
+  else{A.playing=true;if(AU.busy)resumeAudio();else{A.lastCue=null;onSeg()}}
+  setPlayBtn();return}
+ if(t.id==='restart'){A.phase='ex';renderOverlay();startIntro();return}
+ if(t.id==='hearBtn'){saySeq(introKeys(A.ex),A.demo?()=>{A.demoEnd=true}:null);return}
+ if(t.id==='repMinus'||t.id==='repPlus'){
+  const n=Math.min(20,Math.max(1,repsOf(A.ex)+(t.id==='repPlus'?1:-1)));store.set('reps_'+A.ex.id,String(n));
+  $('#repVal').textContent=n;setPlayBtn();refreshEst();
+  if(A.playing&&!A.demo&&A.reps>=n)finishExercise();return}
+ if(t.id==='skipRest'){goSession(SESS.idx+1,true);return}
+ if(t.id==='addRest'){A.restLeft+=30;if(A.restLeft>16){A.saidNext=false;A.whyFor=null}return}
+});
+document.addEventListener('input',ev=>{
+ if(ev.target.id==='libq'||ev.target.id==='sideq'){
+  V.q=ev.target.value;
+  if(V.view!=='library'){const pos=ev.target.selectionStart;closeMenu();go('library');const i=$('#libq');i.focus();try{i.setSelectionRange(pos,pos)}catch(e){}return}
+  const g=$('#libGrid');if(g){const tmp=document.createElement('div');tmp.innerHTML=viewLibrary();g.replaceWith(tmp.querySelector('#libGrid'))}
+  const other=$(ev.target.id==='libq'?'#sideq':'#libq');if(other&&other!==ev.target)other.value=V.q;
+  return}
+ if(ev.target.id==='spd'){CFG.speed=parseFloat(ev.target.value);saveCfg('speed');updateSpeedLbl();refreshEst()}
+});
+document.addEventListener('keydown',ev=>{
+ if(ev.key==='Escape')closeMenu();
+ if(V.view==='player'&&ev.key===' '&&!['BUTTON','INPUT','TEXTAREA'].includes(ev.target.tagName)){ev.preventDefault();$('#play')?.click()}
+});
+window.addEventListener('resize',()=>document.documentElement.style.setProperty('--topH',$('#top').offsetHeight+'px'));
+render();
+</script>
+
+<script>
+if('serviceWorker' in navigator&&location.protocol==='https:'){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
